@@ -1,9 +1,68 @@
-import React, { Component, Stylesheet } from "react";
+import React, { Component } from "react";
 import mathGirl from "../images/Math-Girl.png";
 
 class Landing extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isButtonHover: false,
+            isBrowseNavlinkHover: false,
+            isResourcesNavlinkHover: false,
+            isAboutUsNavlinkHover: false,
+            isContactNavlinkHover: false
+        }
+
+        this._onButtonHover = this._onButtonHover.bind(this)
+        this._onBrowseNavlinkHover = this._onBrowseNavlinkHover.bind(this)
+        this._onResourcesNavlinkHover = this._onResourcesNavlinkHover.bind(this)
+        this._onAboutUsNavlinkHover = this._onAboutUsNavlinkHover.bind(this)
+        this._onContactNavlinkHover = this._onContactNavlinkHover.bind(this)
+    }
+
+    _onButtonHover() {
+        if(!this.state.isButtonHover) {
+            this.setState({isButtonHover: true})
+        } else {
+            this.setState({isButtonHover: false})
+        }
+        return;
+    }
+
+    _onBrowseNavlinkHover() {
+        if(!this.state.isBrowseNavlinkHover) {
+            this.setState({isBrowseNavlinkHover: true})
+        } else {
+            this.setState({isBrowseNavlinkHover: false})
+        }
+        return;
+    }
+
+    _onResourcesNavlinkHover() {
+        if(!this.state.isResourcesNavlinkHover) {
+            this.setState({isResourcesNavlinkHover: true})
+        } else {
+            this.setState({isResourcesNavlinkHover: false})
+        }
+        return;
+    }
+
+    _onAboutUsNavlinkHover() {
+        if(!this.state.isAboutUsNavlinkHover) {
+            this.setState({isAboutUsNavlinkHover: true})
+        } else {
+            this.setState({isAboutUsNavlinkHover: false})
+        }
+        return;
+    }
+
+    _onContactNavlinkHover() {
+        if(!this.state.isContactNavlinkHover) {
+            this.setState({isContactNavlinkHover: true})
+        } else {
+            this.setState({isContactNavlinkHover: false})
+        }
+        return;
     }
 
     render(){
@@ -16,17 +75,17 @@ class Landing extends Component {
                     </div>
                     <div style={styles.navlinksContainer}>
                             <ul style={styles.navlinks}>
-                                <li style={styles.link}><a>Browse</a></li>
-                                <li style={styles.link}><a>Resources</a></li>
-                                <li style={styles.link}><a>About us</a></li>
-                                <li style={styles.link}><a>Contact</a></li>
+                                <li style={styles.link}><a href="#" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
+                                <li style={styles.link}><a href="#" style={this.state.isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onResourcesNavlinkHover} onMouseLeave={this._onResourcesNavlinkHover}>Resources</a></li>
+                                <li style={styles.link}><a href="#" style={this.state.isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onAboutUsNavlinkHover} onMouseLeave={this._onAboutUsNavlinkHover}>About us</a></li>
+                                <li style={styles.link}><a href="#" style={this.state.isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onContactNavlinkHover} onMouseLeave={this._onContactNavlinkHover}>Contact</a></li>
                             </ul>
                     </div>
                 </div>
                 <div style={styles.centerDiv}>
                     <div style={styles.leftDiv}>
                         <h3 style={styles.leftDivText}>Help your child improve their key stage 1 and 2 maths skills using an intelligent tutoring system</h3>
-                        <button style={styles.leftDivButton}>Get Started</button>
+                        <button style={this.state.isButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onButtonHover} onMouseLeave={this._onButtonHover}>Get Started</button>
                     </div>
                     <div style={styles.rightDiv}>
                         <img style={styles.rightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
@@ -82,7 +141,16 @@ let styles = {
         fontSize: 25
     },
     link: {
-        listStyle: 'none'
+        listStyle: 'none',
+        textDecoration: 'none'
+    },
+    anchorNonHover: {
+        textDecoration: 'none',
+        color: 'white',
+    },
+    anchorHover: {
+        textDecoration: 'none',
+        color: '#47DCFF'
     },
     centerDiv: {
         display: 'flex',
@@ -104,7 +172,7 @@ let styles = {
         width: '75%',
         fontSize: 35
     },
-    leftDivButton: {
+    leftDivButtonNonHover: {
         padding: 20,
         width: '50%',
         height: 100,
@@ -114,7 +182,18 @@ let styles = {
         backgroundColor: '#5485FF',
         color: 'white',
         fontSize: 40,
-
+    },
+    leftDivButtonHover: {
+        padding: 20,
+        width: '50%',
+        height: 100,
+        marginTop: '10%',
+        borderRadius: 60,
+        border: 'none',
+        backgroundColor: '#47DCFF',
+        color: 'white',
+        fontSize: 40,
+        cursor: 'pointer'
     },
     rightDiv: {
         zIndex: 2,
