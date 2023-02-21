@@ -91,6 +91,14 @@ class Landing extends Component {
                         <img style={styles.rightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
                     </div>
                 </div>
+                {/*<div style={styles.bottomDiv}>
+                    <div style={styles.leftDiv}>
+                        <a>Terms of service</a>
+                    </div>
+                    <div style={styles.rightDiv}>
+                        <a>Privacy policy</a>
+                    </div>
+                </div>*/}
             </div>
         );
     }
@@ -99,7 +107,6 @@ class Landing extends Component {
 let styles = {
     container: {
         width: '100%',
-        height: '100vh',
         backgroundColor: '#232323',
     },
     topCurve: {
@@ -108,22 +115,23 @@ let styles = {
         height: '120vh',
         backgroundColor: '#2950B3',
         borderRadius: '50%',
-        left: '-5%',
-        top: '-28%',
-        zIndex: 1,
+        left: -100,
+        top: -260,
         boxShadow: 'inset 0px -30px 15px rgba(0, 0, 0, 0.25)'
     },
     navbar: {
+        position: 'fixed',
+        top: 0,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: 'row',
         height: '10.24vh',
+        width: '100%',
         boxShadow: "0px 10px 6px rgba(0, 0, 0, 0.25)",
         color: 'white',
         backgroundColor: '#232323',
-        zIndex: 2,
-        position: 'relative',
+        zIndex: 3
     },
     logo: {
         paddingLeft: '4vh',
