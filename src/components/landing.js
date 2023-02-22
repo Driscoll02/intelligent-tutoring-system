@@ -91,14 +91,14 @@ class Landing extends Component {
                         <img style={styles.rightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
                     </div>
                 </div>
-                {/*<div style={styles.bottomDiv}>
-                    <div style={styles.leftDiv}>
-                        <a>Terms of service</a>
+                <div style={styles.bottomDiv}>
+                    <div style={styles.leftLegalDiv}>
+                        <a>Terms of Service</a>
                     </div>
-                    <div style={styles.rightDiv}>
-                        <a>Privacy policy</a>
+                    <div style={styles.rightLegalDiv}>
+                        <a>Privacy Policy</a>
                     </div>
-                </div>*/}
+                </div>
             </div>
         );
     }
@@ -216,6 +216,26 @@ let styles = {
     rightDivImage: {
         width: '30vw',
         height: '60vh'
+    },
+    bottomDiv: {
+        display: 'flex',
+        height: '20vh',
+        zIndex: 5
+    },
+    leftLegalDiv: {
+        flex: 1,
+        display: 'flex',
+        alignItems: 'flex-end',
+        margin: 20,
+        color: 'white'
+    },
+    rightLegalDiv: {
+        flex: 1,
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        margin: 20,
+        color: 'white'
     }
 }
 
