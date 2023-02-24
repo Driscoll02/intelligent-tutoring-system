@@ -1,30 +1,41 @@
 import React, { Component } from "react";
 import mathGirl from "../images/Math-Girl.png";
 
-class Landing extends Component {
+class KeyStages extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isButtonHover: false,
+            isKS1ButtonHover: false,
+            isKS2ButtonHover: false,
             isBrowseNavlinkHover: false,
             isResourcesNavlinkHover: false,
             isAboutUsNavlinkHover: false,
             isContactNavlinkHover: false
         }
 
-        this._onButtonHover = this._onButtonHover.bind(this)
+        this._onKeyStage1ButtonHover = this._onKeyStage1ButtonHover.bind(this)
+        this._onKeyStage2ButtonHover = this._onKeyStage2ButtonHover.bind(this)
         this._onBrowseNavlinkHover = this._onBrowseNavlinkHover.bind(this)
         this._onResourcesNavlinkHover = this._onResourcesNavlinkHover.bind(this)
         this._onAboutUsNavlinkHover = this._onAboutUsNavlinkHover.bind(this)
         this._onContactNavlinkHover = this._onContactNavlinkHover.bind(this)
     }
 
-    _onButtonHover() {
-        if(!this.state.isButtonHover) {
-            this.setState({isButtonHover: true})
+    _onKeyStage1ButtonHover() {
+        if(!this.state.isKS1ButtonHover) {
+            this.setState({isKS1ButtonHover: true})
         } else {
-            this.setState({isButtonHover: false})
+            this.setState({isKS1ButtonHover: false})
+        }
+        return;
+    }
+
+    _onKeyStage2ButtonHover() {
+        if(!this.state.isKS2ButtonHover) {
+            this.setState({isKS2ButtonHover: true})
+        } else {
+            this.setState({isKS2ButtonHover: false})
         }
         return;
     }
@@ -83,12 +94,10 @@ class Landing extends Component {
                     </div>
                 </div>
                 <div style={styles.topCenterDiv}>
-                    <div style={styles.leftDiv}>
-                        <h3 style={styles.leftDivText}>Help your child improve their key stage 1 and 2 maths skills using an intelligent tutoring system</h3>
-                        <button style={this.state.isButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onButtonHover} onMouseLeave={this._onButtonHover}>Get Started</button>
-                    </div>
-                    <div style={styles.rightDiv}>
-                        <img style={styles.rightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
+                    <h3 style={styles.stageChoiceText}>Choose your stage</h3>
+                    <div style={styles.topCenterCenterDiv}>
+                        <button style={this.state.isKS1ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage1ButtonHover} onMouseLeave={this._onKeyStage1ButtonHover}>Key Stage 1</button>
+                        <button style={this.state.isKS2ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage2ButtonHover} onMouseLeave={this._onKeyStage2ButtonHover}>Key Stage 2</button>
                     </div>
                 </div>
                 <div style={styles.bottomDiv}>
@@ -113,7 +122,7 @@ let styles = {
         position: 'absolute',
         width: '110vw',
         height: '120vh',
-        backgroundColor: '#2950B3',
+        backgroundColor: '#30B330',
         borderRadius: '50%',
         left: -100,
         top: -260,
@@ -130,12 +139,14 @@ let styles = {
         width: '100%',
         boxShadow: "0px 10px 6px rgba(0, 0, 0, 0.25)",
         color: 'white',
-        backgroundColor: '#232323',  
+        backgroundColor: '#232323'
     },
     logo: {
         paddingLeft: '4vh',
         flex: 3,
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     navlinksContainer: {
         flex: 2,
@@ -145,7 +156,9 @@ let styles = {
         flexDirection: 'row',
         paddingRight: '4vh',
         justifyContent: 'space-evenly',
-        fontSize: 25
+        fontSize: 25,
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     link: {
         listStyle: 'none',
@@ -161,65 +174,64 @@ let styles = {
     },
     topCenterDiv: {
         display: 'flex',
-        width: '100%'
-    },
-    leftDiv: {
-        zIndex: 2,
+        flexDirection: 'column',
         width: '100%',
-        flex: 1.25,
         height: '80vh',
+        justifyContent: 'center',
+        alignItems: 'center',
         position: 'relative',
+        paddingTop: '10vh'
+    },
+    stageChoiceText: {
+        color: '#FFFFFF',
+        fontSize: 70,
+        fontFamily: 'Lato',
+        fontWeight: 400
+    },
+    topCenterCenterDiv: {
+        height: '50%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column',
-        color: 'white'
-    },
-    leftDivText: {
-        width: '75%',
-        fontSize: 35
+        overflow: 'hidden',
     },
     leftDivButtonNonHover: {
         padding: 20,
-        width: '50%',
-        height: 100,
+        width: 380,
+        height: 220,
         marginTop: '10%',
-        borderRadius: 60,
+        borderRadius: 40,
         border: 'none',
-        backgroundColor: '#5485FF',
-        color: 'white',
-        fontSize: 40,
+        backgroundColor: '#5EFF5E',
+        color: '#232323',
+        fontSize: 55,
+        margin: 20,
+        boxShadow: "0px 14px 10px rgba(0, 0, 0, 0.25)",
+        fontFamily: 'Lato',
+        fontWeight: 900
     },
     leftDivButtonHover: {
         padding: 20,
-        width: '50%',
-        height: 100,
+        width: 380,
+        height: 220,
         marginTop: '10%',
-        borderRadius: 60,
+        borderRadius: 40,
         border: 'none',
-        backgroundColor: '#47DCFF',
-        color: 'white',
-        fontSize: 40,
-        cursor: 'pointer'
-    },
-    rightDiv: {
-        zIndex: 2,
-        width: '100%',
-        flex: 1,
-        height: '80vh',
-        position: 'relative',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    rightDivImage: {
-        width: '30vw',
-        height: '60vh'
+        backgroundColor: '#52FFB4',
+        color: '#232323',
+        fontSize: 55,
+        cursor: 'pointer',
+        margin: 20,
+        fontFamily: 'Lato',
+        fontWeight: 900
     },
     bottomDiv: {
         display: 'flex',
         height: '20vh',
-        zIndex: 5
+        zIndex: 5,
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        fontSize: 20
     },
     leftLegalDiv: {
         flex: 1,
@@ -238,4 +250,4 @@ let styles = {
     }
 }
 
-export default Landing
+export default KeyStages
