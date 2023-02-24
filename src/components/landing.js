@@ -111,12 +111,12 @@ let styles = {
     },
     topCurve: {
         position: 'absolute',
-        width: '110vw',
-        height: '120vh',
+        width: '111vw',
+        height: '142vh',
         backgroundColor: '#2950B3',
         borderRadius: '50%',
-        left: -100,
-        top: -260,
+        left: -80,
+        bottom: 80,
         boxShadow: 'inset 0px -30px 15px rgba(0, 0, 0, 0.25)'
     },
     navbar: {
@@ -135,7 +135,9 @@ let styles = {
     logo: {
         paddingLeft: '4vh',
         flex: 3,
-        fontSize: 20
+        fontSize: '1.25rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     navlinksContainer: {
         flex: 2,
@@ -145,7 +147,9 @@ let styles = {
         flexDirection: 'row',
         paddingRight: '4vh',
         justifyContent: 'space-evenly',
-        fontSize: 25
+        fontSize: '1.56rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     link: {
         listStyle: 'none',
@@ -177,7 +181,9 @@ let styles = {
     },
     leftDivText: {
         width: '75%',
-        fontSize: 35
+        fontSize: '2.2rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     leftDivButtonNonHover: {
         padding: 20,
@@ -188,7 +194,9 @@ let styles = {
         border: 'none',
         backgroundColor: '#5485FF',
         color: 'white',
-        fontSize: 40,
+        fontSize: '2.5rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     leftDivButtonHover: {
         padding: 20,
@@ -199,8 +207,10 @@ let styles = {
         border: 'none',
         backgroundColor: '#47DCFF',
         color: 'white',
-        fontSize: 40,
-        cursor: 'pointer'
+        fontSize: '2.5rem',
+        cursor: 'pointer',
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     rightDiv: {
         zIndex: 2,
@@ -219,7 +229,10 @@ let styles = {
     bottomDiv: {
         display: 'flex',
         height: '20vh',
-        zIndex: 5
+        zIndex: 5,
+        fontSize: '1.25rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
     },
     leftLegalDiv: {
         flex: 1,

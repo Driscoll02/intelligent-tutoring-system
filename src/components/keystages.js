@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import mathGirl from "../images/Math-Girl.png";
 
 class KeyStages extends Component {
     constructor(props) {
@@ -11,7 +10,7 @@ class KeyStages extends Component {
             isBrowseNavlinkHover: false,
             isResourcesNavlinkHover: false,
             isAboutUsNavlinkHover: false,
-            isContactNavlinkHover: false
+            isContactNavlinkHover: false,
         }
 
         this._onKeyStage1ButtonHover = this._onKeyStage1ButtonHover.bind(this)
@@ -120,12 +119,12 @@ let styles = {
     },
     topCurve: {
         position: 'absolute',
-        width: '110vw',
-        height: '120vh',
+        width: '111vw',
+        height: '142vh',
         backgroundColor: '#30B330',
         borderRadius: '50%',
-        left: -100,
-        top: -260,
+        left: -80,
+        bottom: 80,
         boxShadow: 'inset 0px -30px 15px rgba(0, 0, 0, 0.25)'
     },
     navbar: {
@@ -144,7 +143,7 @@ let styles = {
     logo: {
         paddingLeft: '4vh',
         flex: 3,
-        fontSize: 20,
+        fontSize: '1.25rem',
         fontFamily: 'Lato',
         fontWeight: 400
     },
@@ -156,7 +155,7 @@ let styles = {
         flexDirection: 'row',
         paddingRight: '4vh',
         justifyContent: 'space-evenly',
-        fontSize: 25,
+        fontSize: '1.6rem',
         fontFamily: 'Lato',
         fontWeight: 400
     },
@@ -184,7 +183,7 @@ let styles = {
     },
     stageChoiceText: {
         color: '#FFFFFF',
-        fontSize: 70,
+        fontSize: '4.4rem',
         fontFamily: 'Lato',
         fontWeight: 400
     },
@@ -204,7 +203,7 @@ let styles = {
         border: 'none',
         backgroundColor: '#5EFF5E',
         color: '#232323',
-        fontSize: 55,
+        fontSize: '3.45rem',
         margin: 20,
         boxShadow: "0px 14px 10px rgba(0, 0, 0, 0.25)",
         fontFamily: 'Lato',
@@ -219,7 +218,7 @@ let styles = {
         border: 'none',
         backgroundColor: '#52FFB4',
         color: '#232323',
-        fontSize: 55,
+        fontSize: '3.45rem',
         cursor: 'pointer',
         margin: 20,
         fontFamily: 'Lato',
@@ -231,7 +230,7 @@ let styles = {
         zIndex: 5,
         fontFamily: 'Lato',
         fontWeight: 400,
-        fontSize: 20
+        fontSize: '1.25rem'
     },
     leftLegalDiv: {
         flex: 1,
