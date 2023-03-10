@@ -75,7 +75,7 @@ class Landing extends Component {
                     </div>
                     <div style={styles.navlinksContainer}>
                             <ul style={styles.navlinks}>
-                                <li style={styles.link}><a href="#" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
+                                <li style={styles.link}><a href="/keystages" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onResourcesNavlinkHover} onMouseLeave={this._onResourcesNavlinkHover}>Resources</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onAboutUsNavlinkHover} onMouseLeave={this._onAboutUsNavlinkHover}>About us</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onContactNavlinkHover} onMouseLeave={this._onContactNavlinkHover}>Contact</a></li>
@@ -165,13 +165,14 @@ let styles = {
     },
     topCenterDiv: {
         display: 'flex',
-        width: '100%'
+        width: '100%',
+        marginTop: '11.24vh'
     },
     leftDiv: {
         zIndex: 2,
         width: '100%',
         flex: 1.25,
-        height: '80vh',
+        height: '60vh',
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
@@ -216,7 +217,7 @@ let styles = {
         zIndex: 2,
         width: '100%',
         flex: 1,
-        height: '80vh',
+        height: '60vh',
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
@@ -228,7 +229,7 @@ let styles = {
     },
     bottomDiv: {
         display: 'flex',
-        height: '20vh',
+        height: '28.76vh',
         zIndex: 5,
         fontSize: '1.25rem',
         fontFamily: 'Lato',
@@ -238,7 +239,7 @@ let styles = {
         flex: 1,
         display: 'flex',
         alignItems: 'flex-end',
-        margin: 20,
+        margin: '2vh',
         color: 'white'
     },
     rightLegalDiv: {
@@ -246,7 +247,7 @@ let styles = {
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
-        margin: 20,
+        margin: '2vh',
         color: 'white'
     }
 }

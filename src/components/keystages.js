@@ -85,7 +85,7 @@ class KeyStages extends Component {
                     </div>
                     <div style={styles.navlinksContainer}>
                             <ul style={styles.navlinks}>
-                                <li style={styles.link}><a href="#" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
+                                <li style={styles.link}><a href="/keystages" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onResourcesNavlinkHover} onMouseLeave={this._onResourcesNavlinkHover}>Resources</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onAboutUsNavlinkHover} onMouseLeave={this._onAboutUsNavlinkHover}>About us</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onContactNavlinkHover} onMouseLeave={this._onContactNavlinkHover}>Contact</a></li>
@@ -175,11 +175,12 @@ let styles = {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        height: '80vh',
+        height: '60vh',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'relative',
-        paddingTop: '10vh'
+        paddingTop: '10vh',
+        marginTop: '11.24vh'
     },
     stageChoiceText: {
         color: '#FFFFFF',
@@ -226,7 +227,7 @@ let styles = {
     },
     bottomDiv: {
         display: 'flex',
-        height: '20vh',
+        height: '28.76vh',
         zIndex: 5,
         fontFamily: 'Lato',
         fontWeight: 400,
