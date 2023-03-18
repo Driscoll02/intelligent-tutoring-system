@@ -59,11 +59,11 @@ class KS1Curriculum extends Component {
             <div style={styles.container}>
                 <div style={styles.navbar}>
                     <div style={styles.logo}>
-                        <h1>ITS</h1>
+                        <h1><a style={styles.logoText} href="/">ITS</a></h1>
                     </div>
                     <div style={styles.navlinksContainer}>
                             <ul style={styles.navlinks}>
-                                <li style={styles.link}><a href="#" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
+                                <li style={styles.link}><a href="/keystages" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onResourcesNavlinkHover} onMouseLeave={this._onResourcesNavlinkHover}>Resources</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onAboutUsNavlinkHover} onMouseLeave={this._onAboutUsNavlinkHover}>About us</a></li>
                                 <li style={styles.link}><a href="#" style={this.state.isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onContactNavlinkHover} onMouseLeave={this._onContactNavlinkHover}>Contact</a></li>
@@ -137,6 +137,10 @@ let styles = {
         fontSize: '1.25rem',
         fontFamily: 'Lato',
         fontWeight: 400
+    },
+    logoText: {
+        color: 'white',
+        textDecoration: 'none'
     },
     navlinksContainer: {
         flex: 2,

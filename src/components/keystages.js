@@ -80,8 +80,8 @@ class KeyStages extends Component {
             <div style={styles.container}>
                 <div style={styles.topCurve} />
                 <div style={styles.navbar}>
-                    <div style={styles.logo}>
-                        <h1>ITS</h1>
+                <div style={styles.logo}>
+                        <h1><a style={styles.logoText} href="/">ITS</a></h1>
                     </div>
                     <div style={styles.navlinksContainer}>
                             <ul style={styles.navlinks}>
@@ -146,6 +146,10 @@ let styles = {
         fontSize: '1.25rem',
         fontFamily: 'Lato',
         fontWeight: 400
+    },
+    logoText: {
+        color: 'white',
+        textDecoration: 'none'
     },
     navlinksContainer: {
         flex: 2,
