@@ -85,7 +85,7 @@ class Landing extends Component {
                 <div style={styles.topCenterDiv}>
                     <div style={styles.leftDiv}>
                         <h3 style={styles.leftDivText}>Help your child improve their key stage 1 and 2 maths skills using an intelligent tutoring system</h3>
-                        <button style={this.state.isButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onButtonHover} onMouseLeave={this._onButtonHover}>Get Started</button>
+                        <a href="/keystages" style={this.state.isButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onButtonHover} onMouseLeave={this._onButtonHover}>Get Started</a>
                     </div>
                     <div style={styles.rightDiv}>
                         <img style={styles.rightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
@@ -197,7 +197,11 @@ let styles = {
         color: 'white',
         fontSize: '2.5rem',
         fontFamily: 'Lato',
-        fontWeight: 400
+        fontWeight: 400,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     leftDivButtonHover: {
         padding: 20,
@@ -211,7 +215,11 @@ let styles = {
         fontSize: '2.5rem',
         cursor: 'pointer',
         fontFamily: 'Lato',
-        fontWeight: 400
+        fontWeight: 400,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     rightDiv: {
         zIndex: 2,

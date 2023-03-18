@@ -95,8 +95,8 @@ class KeyStages extends Component {
                 <div style={styles.topCenterDiv}>
                     <h3 style={styles.stageChoiceText}>Choose your stage</h3>
                     <div style={styles.topCenterCenterDiv}>
-                        <button style={this.state.isKS1ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage1ButtonHover} onMouseLeave={this._onKeyStage1ButtonHover}>Key Stage 1</button>
-                        <button style={this.state.isKS2ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage2ButtonHover} onMouseLeave={this._onKeyStage2ButtonHover}>Key Stage 2</button>
+                        <a href="/ks1" style={this.state.isKS1ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage1ButtonHover} onMouseLeave={this._onKeyStage1ButtonHover}>Key Stage 1</a>
+                        <a style={this.state.isKS2ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage2ButtonHover} onMouseLeave={this._onKeyStage2ButtonHover}>Key Stage 2</a>
                     </div>
                 </div>
                 <div style={styles.bottomDiv}>
@@ -208,7 +208,11 @@ let styles = {
         margin: 20,
         boxShadow: "0px 14px 10px rgba(0, 0, 0, 0.25)",
         fontFamily: 'Lato',
-        fontWeight: 900
+        fontWeight: 900,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     leftDivButtonHover: {
         padding: 20,
@@ -223,7 +227,11 @@ let styles = {
         cursor: 'pointer',
         margin: 20,
         fontFamily: 'Lato',
-        fontWeight: 900
+        fontWeight: 900,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     bottomDiv: {
         display: 'flex',
