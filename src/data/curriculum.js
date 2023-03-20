@@ -1,8 +1,8 @@
 export const curriculumData = [
     // KS1 array
-    KeyStage1 = [
+    [
         // Year 1 array
-        Year1 = [
+        [
             {
                 tag: "number and place value",
                 questions: [
@@ -204,7 +204,7 @@ export const curriculumData = [
             }
         ],
         // Year 2 array
-        Year2 = [
+        [
             {
                 tag: "number and place value",
                 questions: [
@@ -327,9 +327,9 @@ export const curriculumData = [
         ]
     ],
     // Key stage 2
-    KeyStage2 = [
+    [
         // Year 3 array
-        Year3 = [
+        [
             {
                 tag: "number and place value",
                 questions: [
@@ -451,7 +451,7 @@ export const curriculumData = [
             }
         ],
         // Year 4 array
-        Year4 = [
+        [
             {
                 tag: "number and place value",
                 questions: [
@@ -573,7 +573,7 @@ export const curriculumData = [
             }
         ],
         // Year 5 array
-        Year5 = [
+        [
             {
                 tag: "number and place value",
                 questions: [
@@ -695,7 +695,7 @@ export const curriculumData = [
             }
         ],
         // Year 6 array
-        Year6 = [
+        [
             {
                 tag: "number and place value",
                 questions: [
