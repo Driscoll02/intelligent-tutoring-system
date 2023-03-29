@@ -96,7 +96,7 @@ class KeyStages extends Component {
                     <h3 style={styles.stageChoiceText}>Choose your stage</h3>
                     <div style={styles.topCenterCenterDiv}>
                         <a href="/ks1" style={this.state.isKS1ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage1ButtonHover} onMouseLeave={this._onKeyStage1ButtonHover}>Key Stage 1</a>
-                        <a style={this.state.isKS2ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage2ButtonHover} onMouseLeave={this._onKeyStage2ButtonHover}>Key Stage 2</a>
+                        <a href="/ks2" style={this.state.isKS2ButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onKeyStage2ButtonHover} onMouseLeave={this._onKeyStage2ButtonHover}>Key Stage 2</a>
                     </div>
                 </div>
                 <div style={styles.bottomDiv}>
