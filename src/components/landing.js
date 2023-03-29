@@ -166,13 +166,13 @@ let styles = {
     topCenterDiv: {
         display: 'flex',
         width: '100%',
-        marginTop: '11.24vh'
+        marginTop: '16.24vh'
     },
     leftDiv: {
         zIndex: 2,
         width: '100%',
         flex: 1.25,
-        height: '60vh',
+        height: '56vh',
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
@@ -225,19 +225,20 @@ let styles = {
         zIndex: 2,
         width: '100%',
         flex: 1,
-        height: '60vh',
+        height: '56vh',
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden',
     },
     rightDivImage: {
-        width: '30vw',
-        height: '60vh'
+        width: '32vw',
+        height: '59vh'
     },
     bottomDiv: {
         display: 'flex',
-        height: '28.76vh',
+        height: '27.76vh',
         zIndex: 5,
         fontSize: '1.25rem',
         fontFamily: 'Lato',
