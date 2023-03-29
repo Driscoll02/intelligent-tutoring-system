@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import TopicContainer from "./topiccontainer";
+import measurementIcon from "../images/topic-icons/MeasurementIcon.png";
+import placeValue from "../images/topic-icons/PlaceValue.png";
+import multiplicationDivision from "../images/topic-icons/MultiplicationDivision.png";
+import shapes from "../images/topic-icons/Shapes.png";
+import additionSubtraction from "../images/topic-icons/AdditionSubtraction.png";
+import fractions from "../images/topic-icons/Fractions.png";
+import shapeRotation from "../images/topic-icons/ShapeRotation.png";
 
 class KS1Curriculum extends Component {
     constructor(props) {
@@ -77,13 +84,13 @@ class KS1Curriculum extends Component {
                                 <h2 style={{fontSize: '2.2rem', color: '#232323'}}>Year 1</h2>
                             </div>
                             <div style={styles.topicSuperContainer}>
-                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="The learner will start to count to 100 in multiples of 1, 2, 5, and 10. They will also learn to represent numbers using pictures." />
-                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="The learner will start read, write, and understand mathematical symbols using addition (+), and subtraction (-)." />
-                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description={"The learner will start to read, write, and understand mathematical symbols using multiplication (x), and division (\u00F7)."} />
-                                <TopicContainer style={styles.topicContainer} title="Fractions" description="The learner will begin to understand that fractions are all about sharing. They will also gain the understanding that fractions are just smaller parts of bigger objects, or groups of objects, focusing on halfs, and quarters." />
-                                <TopicContainer style={styles.topicContainer} title="Measurement" description="Here, the learner will learn measurement in relation to weight, volume, length, height, and time. They will also work on recognising the value of coins and notes." />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will learn to recognise common 2D and 3D shapes. They will also learn basic geometry terms such as sides and edges." />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="Here, the learner will learn to describe changes in the position of a shape, focusing on terms such as right turn, left turn, and quarter turns." />
+                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="The learner will start to count to 100 in multiples of 1, 2, 5, and 10. They will also learn to represent numbers using pictures." icon={placeValue} iconAlt="Place Value" />
+                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="The learner will start read, write, and understand mathematical symbols using addition (+), and subtraction (-)." icon={additionSubtraction} iconAlt="Addition and Subtraction" />
+                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description={"The learner will start to read, write, and understand mathematical symbols using multiplication (x), and division (\u00F7)."} icon={multiplicationDivision} iconAlt="Multiplication and Division" />
+                                <TopicContainer style={styles.topicContainer} title="Fractions" description="The learner will begin to understand that fractions are all about sharing. They will also gain the understanding that fractions are just smaller parts of bigger objects, or groups of objects, focusing on halfs, and quarters." icon={fractions} iconAlt="Fractions" />
+                                <TopicContainer style={styles.topicContainer} title="Measurement" description="Here, the learner will learn measurement in relation to weight, volume, length, height, and time. They will also work on recognising the value of coins and notes." icon={measurementIcon} iconAlt="Measurement" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will learn to recognise common 2D and 3D shapes. They will also learn basic geometry terms such as sides and edges." icon={shapes} iconAlt="Properties of Shapes" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="Here, the learner will learn to describe changes in the position of a shape, focusing on terms such as right turn, left turn, and quarter turns." icon={shapeRotation} iconAlt="Position and Direction of Shapes" />
                             </div>
                         </div>
                         <div style={styles.yearContainer}>
@@ -91,13 +98,13 @@ class KS1Curriculum extends Component {
                                 <h2 style={{fontSize: '2rem', color: '#232323'}}>Year 2</h2>
                             </div>
                             <div style={styles.topicSuperContainer}>
-                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="Here, the learner will begin to compare and order numbers from 1 to 100, and will begin to recognise the place value for two digit numbers. They will also learn how to use greater than (>), and less than (<) symbols." />
-                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="In year 2, the learner will solve addition and subtraction problems involving numbers, measures, and quantities." />
-                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description="In year 2, the learner will solve multiplication and division problems using the 2, 3, 5, and 10 multiplication tables." />
-                                <TopicContainer style={styles.topicContainer} title="Fractions" description="Here, the learner will continue to learn about halves, and quarters, however, they will also be introduced to thirds. They will also gain an understanding of terminology such as equivelence, denominator, and numerator." />
-                                <TopicContainer style={styles.topicContainer} title="Measurement" description="In addition to learning weight, volume, time, money, length, and height, they will also learn how to measure temperature." />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will begin to describe 2D and 3D shapes using accurate terminology." />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="The learner will begin to arrange shapes into patterns, and talk about rotation." />
+                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="Here, the learner will begin to compare and order numbers from 1 to 100, and will begin to recognise the place value for two digit numbers. They will also learn how to use greater than (>), and less than (<) symbols." icon={placeValue} iconAlt="Place Value" />
+                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="In year 2, the learner will solve addition and subtraction problems involving numbers, measures, and quantities." icon={additionSubtraction} iconAlt="Addition and Subtraction" />
+                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description="In year 2, the learner will solve multiplication and division problems using the 2, 3, 5, and 10 multiplication tables." icon={multiplicationDivision} iconAlt="Multiplication and Division" />
+                                <TopicContainer style={styles.topicContainer} title="Fractions" description="Here, the learner will continue to learn about halves, and quarters, however, they will also be introduced to thirds. They will also gain an understanding of terminology such as equivelence, denominator, and numerator." icon={fractions} iconAlt="Fractions" />
+                                <TopicContainer style={styles.topicContainer} title="Measurement" description="In addition to learning weight, volume, time, money, length, and height, they will also learn how to measure temperature." icon={measurementIcon} iconAlt="Measurement" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will begin to describe 2D and 3D shapes using accurate terminology." icon={shapes} iconAlt="Properties of Shapes" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="The learner will begin to arrange shapes into patterns, and talk about rotation." icon={shapeRotation} iconAlt="Position and Direction of Shapes" />
                             </div>
                         </div>
                     </div>
