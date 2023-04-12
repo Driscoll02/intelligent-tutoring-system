@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class TopicContainer extends Component {
     render(){
         return (
-            <div style={styles.container}>
+            <a href="/numberplacevalue" style={styles.container} questionTitle={this.props.title}>
                 <div style={styles.infoDiv}>
                     <h4 style={{paddingBottom: 5}}>{this.props.title}</h4>
                     <p>{this.props.description}</p>
@@ -11,7 +11,7 @@ class TopicContainer extends Component {
                 <div style={styles.iconDiv}>
                     <img style={styles.iconDivImage} src={this.props.icon} alt={this.props.iconAlt} />
                 </div>
-            </div>
+            </a>
         )
     }
 }
@@ -30,6 +30,7 @@ const styles = {
         boxShadow: "0px 8px 12px rgba(0, 0, 0, 0.25)",
         overflow: 'hidden',
         display: 'flex',
+        textDecoration: 'none',
     },
     infoDiv: {
         flex: 8,
