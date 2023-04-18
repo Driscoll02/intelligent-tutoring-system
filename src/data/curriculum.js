@@ -8,23 +8,43 @@ export const curriculumData = [
                 questions: [
                     {
                         question: ["What number is 1 more than 4?"],
-                        answer: ["5"]
+                        answer: ["5"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Placeholder"]
+                        }
                     },
                     {
                         question: ["What number is 5 more than 5?"],
-                        answer: ["10"]
+                        answer: ["10"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Placeholder"]
+                        }
                     },
                     {
                         question: ["What number is 2 less than 10?"],
-                        answer: ["8"]
+                        answer: ["8"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Placeholder"]
+                        }
                     },
                     {
                         question: ["Write all the numbers from 1 to 10"],
-                        answer: ["1, 2, 3, 4, 5, 6, 7, 8, 9, 10", "1 2 3 4 5 6 7 8 9 10", "12345678910"]
+                        answer: ["1, 2, 3, 4, 5, 6, 7, 8, 9, 10", "1 2 3 4 5 6 7 8 9 10", "12345678910"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Placeholder"]
+                        }
                     },
                     {
                         question: ["Put these numbers in order: 5, 16, 18, 2, 3"],
-                        answer: ["2, 3, 5, 16, 18", "2 3 5 16 18", "2351618"]
+                        answer: ["2, 3, 5, 16, 18", "2 3 5 16 18", "2351618"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Placeholder"]
+                        }
                     }
                 ]
             },

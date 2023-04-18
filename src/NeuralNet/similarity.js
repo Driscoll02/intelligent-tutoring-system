@@ -1,6 +1,7 @@
 import { stemmer } from 'stemmer';
 import { curriculumData } from '../data/curriculum';
 import stringSimilarity from 'string-similarity';
+import Sentiment from 'sentiment';
 
 class Similarity {
     constructor() {
@@ -15,7 +16,7 @@ class Similarity {
     }
 
     tokeniseStemString(text) {
-        console.log("Text", text);
+        console.log("Text: ", text);
         const tokenisedText = text.split("");
         const stemmedString = stemmer(tokenisedText)
         return stemmedString;
@@ -23,6 +24,11 @@ class Similarity {
 
     getBestMatch(text) {
         return stringSimilarity.findBestMatch(this.tokeniseStemString(text), this.state.possibleTeacherAnswers);
+    }
+
+    analyseSemantics(text) {
+        const sentiment = new Sentiment();
+        return sentiment.analyze(text);
     }
 }
 
