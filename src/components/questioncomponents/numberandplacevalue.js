@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import Similarity from "../../NeuralNet/similarity";
-import TextGen from "../../NeuralNet/textgen";
+// import TextGen from "../../NeuralNet/textgen";
 import { curriculumData } from "../../data/curriculum";
 import NavBar from "../navbar";
 import { Button } from "@mui/material"
