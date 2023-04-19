@@ -11,7 +11,7 @@ export const curriculumData = [
                         answer: ["5"],
                         possibleFeedback: {
                             positiveFeedback: ["This is correct!", "Well done!"],
-                            negativeFeedback: ["Placeholder"]
+                            negativeFeedback: ["7 is not 1 more than 4.", "This is incorrect, but you're very close!", "Remember to count up from 4.", "Are you sure you counted up, and not down?"]
                         }
                     },
                     {
@@ -19,7 +19,7 @@ export const curriculumData = [
                         answer: ["10"],
                         possibleFeedback: {
                             positiveFeedback: ["This is correct!", "Well done!"],
-                            negativeFeedback: ["Placeholder"]
+                            negativeFeedback: ["12 is not 5 more than 5.", "This is incorrect, but you're very close!", "Remember to count up from 5.", "Are you sure you counted up, and not down?"]
                         }
                     },
                     {
@@ -27,7 +27,7 @@ export const curriculumData = [
                         answer: ["8"],
                         possibleFeedback: {
                             positiveFeedback: ["This is correct!", "Well done!"],
-                            negativeFeedback: ["Placeholder"]
+                            negativeFeedback: ["4 is not 2 less than 10.", "This is incorrect, but you're very close!", "Remember to count down from the original number.", "Are you sure you counted down, and not up?"]
                         }
                     },
                     {
@@ -35,7 +35,7 @@ export const curriculumData = [
                         answer: ["1, 2, 3, 4, 5, 6, 7, 8, 9, 10", "1 2 3 4 5 6 7 8 9 10", "12345678910"],
                         possibleFeedback: {
                             positiveFeedback: ["This is correct!", "Well done!"],
-                            negativeFeedback: ["Placeholder"]
+                            negativeFeedback: ["Make sure you count upwards.", "This is incorrect, but you're very close!", "Remember to count up from 1, and add 1 every time.", "Are you sure you counted up, and not down?", "Remember, start from 1 and not 0"]
                         }
                     },
                     {
@@ -43,7 +43,7 @@ export const curriculumData = [
                         answer: ["2, 3, 5, 16, 18", "2 3 5 16 18", "2351618"],
                         possibleFeedback: {
                             positiveFeedback: ["This is correct!", "Well done!"],
-                            negativeFeedback: ["Placeholder"]
+                            negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
                         }
                     }
                 ]
