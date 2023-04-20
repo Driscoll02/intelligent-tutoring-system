@@ -5,6 +5,7 @@ import Similarity from "../../NeuralNet/similarity";
 import { curriculumData } from "../../data/curriculum";
 import NavBar from "../navbar";
 import { Button } from "@mui/material"
+import NeuralNet from "../../NeuralNet/neuralnet";
 
 function NumberPlaceValue() {
     const { id } = useParams();
@@ -14,6 +15,8 @@ function NumberPlaceValue() {
     const [currentQuestionAnswer, setCurrentQuestionAnswer] = useState('');
     const [howStudentFeels, setHowStudentFeels] = useState('');
     const [feedback, setFeedback] = useState('');
+
+    NeuralNet();
 
     // console.log(id)
     // console.log(studentAnswer)
