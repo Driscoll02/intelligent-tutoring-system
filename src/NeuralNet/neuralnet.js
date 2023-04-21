@@ -87,7 +87,7 @@ function NeuralNet() {
             console.log("Found model");
             await tf.loadLayersModel('localstorage://my-model-1');
         } catch (error) {
-            console.log("No model found");
+            console.log("No model found:", error);
             await model.fit(training, output, {
                 epochs: 1000,
                 batchSize: 8
