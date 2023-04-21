@@ -1,6 +1,4 @@
 import { stemmer } from 'stemmer';
-import stringSimilarity from 'string-similarity';
-import Sentiment from 'sentiment';
 import intents from '../data/intents.json'
 import * as tf from '@tensorflow/tfjs';
 import * as math from 'mathjs';
