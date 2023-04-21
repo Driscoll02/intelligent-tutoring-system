@@ -1,13 +1,15 @@
 import { stemmer } from 'stemmer';
-import { curriculumData } from '../data/curriculum';
+import intents from '../data/intents.json';
 import stringSimilarity from 'string-similarity';
 import Sentiment from 'sentiment';
 
 class Similarity {
-    constructor() {
+    constructor(props) {
         this.state = {
             similarityScore: 0,
             studentAnswer: '',
+            // Update possibleTeacherAnswers to get positive and negative responses from intents
+            // Use props to determine the current topic and use that to access relevent index
             possibleTeacherAnswers: ['This', 'Is', 'A', 'Test'],
         }
 

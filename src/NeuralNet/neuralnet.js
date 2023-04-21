@@ -13,9 +13,9 @@ function NeuralNet() {
 
     for (let intent of data) {
         for (let pattern of intent.patterns) {
-            let tokenized_words = pattern.split(" ");
-            words = words.concat(tokenized_words);
-            docs_x.push(tokenized_words);
+            let tokenised_words = pattern.split(" ");
+            words = words.concat(tokenised_words);
+            docs_x.push(tokenised_words);
             docs_y.push(intent.tag);
         }
         
@@ -30,7 +30,6 @@ function NeuralNet() {
 
     labels = labels.sort();
 
-    // create bag of words (one hot encode)
     let training = [];
     let output = [];
     let out_empty = new Array(labels.length).fill(0);
@@ -40,11 +39,11 @@ function NeuralNet() {
         let bag = [];
     
         // split each word into characters
-        let tokenized_words = doc.map(w => stemmer(w));
+        let tokenised_words = doc.map(w => stemmer(w));
     
         // one hot encode
         for (let w of words) {
-            if (tokenized_words.includes(w)) {
+            if (tokenised_words.includes(w)) {
                 bag.push(1);
             } else {
                 bag.push(0);
@@ -53,6 +52,8 @@ function NeuralNet() {
     
         let output_row = [...out_empty];
         output_row[labels.indexOf(docs_y[x])] = 1;
+
+        console.log(docs_y[x]);
     
         training.push(bag);
         output.push(output_row);
