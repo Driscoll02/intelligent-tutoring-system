@@ -390,6 +390,18 @@
         },
         {"tag": "positionAndDirectionPositive",
          "patterns": [
+            "My shape is definitly pointing in the right direction",
+            "My shape is definitly facing the right direction",
+            "I am very confident about position and direction",
+            "Position and direction is easy",
+            "I'm getting good at working with position of shapes",
+            "I'm getting good at working with direction of shapes",
+            "Changing the direction of my shape is easy.",
+            "Changing the position of my shape is easy.",
+            "I know that my shape is in the right place for certain",
+            "My shape is in the right place",
+            "My shape is pretty much correct",
+            "I think my shape is definitly in the correct position",
             "I feel very confident in identifying positions of shapes on a grid.",
             "I'm very good at telling the direction of shapes.",
             "I'm confident in knowing which way a shape is facing.",
@@ -409,6 +421,15 @@
         },
         {"tag": "positionAndDirectionNegative",
          "patterns": [
+            "My shape is definitly not pointing in the right direction ",
+            "I am not confident about position and direction",
+            "Position and direction is hard",
+            "I'm struggling to work with position of shapes",
+            "I'm struggling to work with direction of shapes",
+            "I don't know how to change the direction of my shape.",
+            "My shape is not in the right place",
+            "I think my shape is too far left",
+            "I think my shape is not right enough",
             "I'm not sure if I'm pointing the right direction.",
             "I'm having trouble understanding how to describe the position of the shape.",
             "I don't understand how to use coordinates to show the position of the shape.",
@@ -441,6 +462,9 @@
         },
         {"tag": "statisticsPositive",
          "patterns": [
+            "I am the master of statistics. Especially with statistical analysis",
+            "Statistics are quite easy",
+            "I feel much more comfortable with statistics",
             "I feel really confident with my data interpretation skills!",
             "I am pretty sure I got this one right because I used the right data set.",
             "I feel like I have a good understanding of what the data is telling us.",
@@ -450,7 +474,9 @@
             "I feel like I have a good grasp on what a range is.",
             "I am feeling more comfortable with graphing and charting.",
             "I am confident in my ability to identify the mode.",
-            "I feel good about my ability to make predictions based on data."
+            "I feel good about my ability to make predictions based on data.",
+            "I'm not sure if my data is normally distributed or not.",
+            "I'm struggling with understanding the concept of standard deviation"
           ],
          "responses": [
             "Well done! You have identified the range of the data correctly.",
@@ -468,6 +494,9 @@
         },
         {"tag": "statisticsNegative",
          "patterns": [
+            "I need to spend more time with statistics",
+            "I am struggling with statistics",
+            "Statistics is really hard for me to understand",
             "I'm not sure if I calculated the range correctly.",
             "I don't think I understand how to find the mode.",
             "I don't feel confident with this topic.",
@@ -477,7 +506,16 @@
             "I don't feel like I fully understand the instructions.",
             "I'm not confident with my answer.",
             "I'm struggling with this topic.",
-            "I don't think I'm using the right method to solve this problem."
+            "I don't think I'm using the right method to solve this problem.",
+            "I don't know how to apply the central limit theorem to this problem",
+            "I'm having a hard time visualizing the distribution of this data",
+            "I'm not sure if my hypothesis test is valid or not",
+            "I'm confused about the difference between correlation and causation",
+            "I'm having difficulty interpreting the results of my regression analysis",
+            "I'm not confident with my ability to use Bayesian statistics",
+            "I'm struggling with understanding the difference between Type I and Type II errors",
+            "I'm not sure how to calculate confidence intervals",
+            "I'm having trouble understanding the meaning of p-values"
           ],
          "responses": [
             "I think you need to review the range of your data",
@@ -531,7 +569,11 @@
             "I'm finding it hard to keep track of the variables",
             "I don't know how to simplify the expressions",
             "I'm not sure how to check my answer",
-            "I'm having difficulty with word problems"
+            "I'm having difficulty with word problems",
+            "I need assistance with algebraic expressions",
+            "I don't know how to solve systems of equations",
+            "Algebra isn't really my strong point",
+            "I'm really struggling with algebra"
           ],
          "responses": [
             "You need to practice more to understand this concept",

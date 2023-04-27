@@ -1,9 +1,13 @@
+import React, {useState, useEffect} from 'react';
 import { stemmer } from 'stemmer';
 import intents from '../data/intents.json'
 import * as tf from '@tensorflow/tfjs';
 import * as math from 'mathjs';
 
 function NeuralNet() {
+    const [results, setResults] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
     let words = [];
     let labels = [];
     let docs_x = [];
@@ -38,10 +42,10 @@ function NeuralNet() {
         let doc = docs_x[x];
         let bag = [];
     
-        // split each word into characters
+        // stem each word
         let tokenised_words = doc.map(w => stemmer(w));
     
-        // one hot encode
+        // create bag of words and one hot encode
         for (let w of words) {
             if (tokenised_words.includes(w)) {
                 bag.push(1);
@@ -52,8 +56,6 @@ function NeuralNet() {
     
         let output_row = [...out_empty];
         output_row[labels.indexOf(docs_y[x])] = 1;
-
-        console.log(docs_y[x]);
     
         training.push(bag);
         output.push(output_row);
@@ -63,28 +65,48 @@ function NeuralNet() {
         const model = tf.sequential();
 
         model.add(tf.layers.dense({
-            units: 8,
-            inputShape: [training[0].length]
+            units: 64,
+            inputShape: [training[0].length],
+            activation: 'sigmoid'
         }));
         model.add(tf.layers.dense({
-            units: 8
+            units: 64,
+            activation: 'sigmoid'
         }));
         model.add(tf.layers.dense({
             units: output[0].length,
             activation: 'softmax'
         }));
 
-        model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+        model.compile({loss: 'meanSquaredError', optimizer: 'adam'});
 
-        training = math.reshape(training, [203, 377])
+        // training = math.reshape(training, [203, 453])
         training = tf.tensor(training);
         output = tf.tensor(output);
+
+        const predictInput = "I'm not sure if I'm pointing the right direction.";
         
         // Check if model exists
         // If yes - load, If no - train model
         try {
             console.log("Found model");
-            await tf.loadLayersModel('localstorage://my-model-1');
+            const model = await tf.loadLayersModel('localstorage://my-model-1');
+            
+            const bag = BagOfWords(predictInput, words)
+            const prediction = model.predict(tf.tensor2d(bag, [1, bag.length]));
+            let predResult;
+            let maxIndex;
+            prediction.array().then(result => {
+                predResult = result;
+                console.log("Results:", predResult)
+            }).then(() => {
+                console.log("Res arr length:", predResult[0].length);
+                 maxIndex = predResult[0].indexOf(Math.max(...predResult[0]))
+            }).then(() => {
+                const tag = labels[maxIndex];
+                console.log("Tag", tag);
+            });
+
         } catch (error) {
             console.log("No model found:", error);
             await model.fit(training, output, {
@@ -95,6 +117,23 @@ function NeuralNet() {
     }
 
     trainModel();
+
+    function BagOfWords(sentence, words) {
+        const bag = new Array(words.length).fill(0);
+      
+        const s_words = sentence.split(' ').map(word => stemmer(word.toLowerCase()));
+
+        for (const se of s_words) {
+          for (let i = 0; i < words.length; i++) {
+            const w = words[i];
+            if (w === se) {
+              bag[i] = 1;
+            }
+          }
+        }
+
+        return bag;
+      }
 
 }
 
