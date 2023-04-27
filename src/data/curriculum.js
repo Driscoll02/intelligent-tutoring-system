@@ -53,27 +53,51 @@ export const curriculumData = [
                 questions: [
                     {
                         question: ["5 + 4"],
-                        answer: ["9"]  
+                        answer: ["9"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        }
                     },
                     {
                         question: ["10 - 6"],
-                        answer: ["4"]  
+                        answer: ["4"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        }
                     },
                     {
                         question: ["18 - 5"],
-                        answer: ["13"]  
+                        answer: ["13"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        }  
                     },
                     {
                         question: ["15 + 2"],
-                        answer: ["17"]  
+                        answer: ["17"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        }  
                     },
                     {
                         question: ["1 + 3"],
-                        answer: ["4"]  
+                        answer: ["4"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        }  
                     },
                     {
                         question: ["20 - 6"],
-                        answer: ["14"]  
+                        answer: ["14"],
+                        possibleFeedback: {
+                            positiveFeedback: ["This is correct!", "Well done!"],
+                            negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        }  
                     }
                 ]
             },
