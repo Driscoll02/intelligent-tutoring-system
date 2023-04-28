@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class TopicContainer extends Component {
     render(){
         return (
-            <a href={`/${this.props.topicName}/:${this.props.yearNum}`} style={styles.container} >
+            <a href={`/${this.props.topicName}/:${this.props.yearNum}/:${this.props.stage}`} style={styles.container} >
                 <div style={styles.infoDiv}>
                     <h4 style={{paddingBottom: 5}}>{this.props.title}</h4>
                     <p>{this.props.description}</p>

@@ -7,6 +7,7 @@ import shapes from "../images/topic-icons/Shapes.png";
 import additionSubtraction from "../images/topic-icons/AdditionSubtraction.png";
 import fractions from "../images/topic-icons/Fractions.png";
 import shapeRotation from "../images/topic-icons/ShapeRotation.png";
+import NavBar from "./navbar";
 
 class KS1Curriculum extends Component {
     constructor(props) {
@@ -19,64 +20,12 @@ class KS1Curriculum extends Component {
             isContactNavlinkHover: false
         }
 
-        this._onBrowseNavlinkHover = this._onBrowseNavlinkHover.bind(this)
-        this._onResourcesNavlinkHover = this._onResourcesNavlinkHover.bind(this)
-        this._onAboutUsNavlinkHover = this._onAboutUsNavlinkHover.bind(this)
-        this._onContactNavlinkHover = this._onContactNavlinkHover.bind(this)
-    }
-
-    _onBrowseNavlinkHover() {
-        if(!this.state.isBrowseNavlinkHover) {
-            this.setState({isBrowseNavlinkHover: true})
-        } else {
-            this.setState({isBrowseNavlinkHover: false})
-        }
-        return;
-    }
-
-    _onResourcesNavlinkHover() {
-        if(!this.state.isResourcesNavlinkHover) {
-            this.setState({isResourcesNavlinkHover: true})
-        } else {
-            this.setState({isResourcesNavlinkHover: false})
-        }
-        return;
-    }
-
-    _onAboutUsNavlinkHover() {
-        if(!this.state.isAboutUsNavlinkHover) {
-            this.setState({isAboutUsNavlinkHover: true})
-        } else {
-            this.setState({isAboutUsNavlinkHover: false})
-        }
-        return;
-    }
-
-    _onContactNavlinkHover() {
-        if(!this.state.isContactNavlinkHover) {
-            this.setState({isContactNavlinkHover: true})
-        } else {
-            this.setState({isContactNavlinkHover: false})
-        }
-        return;
     }
 
     render(){
         return (
             <div style={styles.container}>
-                <div style={styles.navbar}>
-                    <div style={styles.logo}>
-                        <h1><a style={styles.logoText} href="/">ITS</a></h1>
-                    </div>
-                    <div style={styles.navlinksContainer}>
-                            <ul style={styles.navlinks}>
-                                <li style={styles.link}><a href="/keystages" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
-                                <li style={styles.link}><a href="#" style={this.state.isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onResourcesNavlinkHover} onMouseLeave={this._onResourcesNavlinkHover}>Resources</a></li>
-                                <li style={styles.link}><a href="#" style={this.state.isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onAboutUsNavlinkHover} onMouseLeave={this._onAboutUsNavlinkHover}>About us</a></li>
-                                <li style={styles.link}><a href="#" style={this.state.isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onContactNavlinkHover} onMouseLeave={this._onContactNavlinkHover}>Contact</a></li>
-                            </ul>
-                    </div>
-                </div>
+                <NavBar />
                 <div style={styles.centerDiv}>
                     <div style={styles.centerDivLeft}>
                         <div style={styles.yearContainer}>
@@ -84,13 +33,13 @@ class KS1Curriculum extends Component {
                                 <h2 style={{fontSize: '2.2rem', color: '#232323'}}>Year 1</h2>
                             </div>
                             <div style={styles.topicSuperContainer}>
-                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="The learner will start to count to 100 in multiples of 1, 2, 5, and 10. They will also learn to represent numbers using pictures." icon={placeValue} iconAlt="Place Value" topicName="numberplacevalue" yearNum="1" />
-                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="The learner will start read, write, and understand mathematical symbols using addition (+), and subtraction (-)." icon={additionSubtraction} iconAlt="Addition and Subtraction" topicName="additionsubtraction" yearNum="1" />
-                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description={"The learner will start to read, write, and understand mathematical symbols using multiplication (x), and division (\u00F7)."} icon={multiplicationDivision} iconAlt="Multiplication and Division" yearNum="1" />
-                                <TopicContainer style={styles.topicContainer} title="Fractions" description="The learner will begin to understand that fractions are all about sharing. They will also gain the understanding that fractions are just smaller parts of bigger objects, or groups of objects, focusing on halfs, and quarters." icon={fractions} iconAlt="Fractions" yearNum="1" />
-                                <TopicContainer style={styles.topicContainer} title="Measurement" description="Here, the learner will learn measurement in relation to weight, volume, length, height, and time. They will also work on recognising the value of coins and notes." icon={measurementIcon} iconAlt="Measurement" yearNum="1" />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will learn to recognise common 2D and 3D shapes. They will also learn basic geometry terms such as sides and edges." icon={shapes} iconAlt="Properties of Shapes" yearNum="1" />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="Here, the learner will learn to describe changes in the position of a shape, focusing on terms such as right turn, left turn, and quarter turns." icon={shapeRotation} iconAlt="Position and Direction of Shapes" yearNum="1" />
+                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="The learner will start to count to 100 in multiples of 1, 2, 5, and 10. They will also learn to represent numbers using pictures." icon={placeValue} iconAlt="Place Value" topicName="numberplacevalue" yearNum="1" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="The learner will start read, write, and understand mathematical symbols using addition (+), and subtraction (-)." icon={additionSubtraction} iconAlt="Addition and Subtraction" topicName="additionsubtraction" yearNum="1" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description={"The learner will start to read, write, and understand mathematical symbols using multiplication (x), and division (\u00F7)."} icon={multiplicationDivision} iconAlt="Multiplication and Division" topicName="multiplicationdivision" yearNum="1" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Fractions" description="The learner will begin to understand that fractions are all about sharing. They will also gain the understanding that fractions are just smaller parts of bigger objects, or groups of objects, focusing on halfs, and quarters." icon={fractions} iconAlt="Fractions" topicName="fractions" yearNum="1" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Measurement" description="Here, the learner will learn measurement in relation to weight, volume, length, height, and time. They will also work on recognising the value of coins and notes." icon={measurementIcon} iconAlt="Measurement" topicName="measurement" yearNum="1" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will learn to recognise common 2D and 3D shapes. They will also learn basic geometry terms such as sides and edges." icon={shapes} iconAlt="Properties of Shapes" topicName="propertiesofshapes" yearNum="1" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="Here, the learner will learn to describe changes in the position of a shape, focusing on terms such as right turn, left turn, and quarter turns." icon={shapeRotation} iconAlt="Position and Direction of Shapes" topicName="positiondirectionshapes" yearNum="1" stage="1" />
                             </div>
                         </div>
                         <div style={styles.yearContainer}>
@@ -98,13 +47,13 @@ class KS1Curriculum extends Component {
                                 <h2 style={{fontSize: '2rem', color: '#232323'}}>Year 2</h2>
                             </div>
                             <div style={styles.topicSuperContainer}>
-                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="Here, the learner will begin to compare and order numbers from 1 to 100, and will begin to recognise the place value for two digit numbers. They will also learn how to use greater than (>), and less than (<) symbols." icon={placeValue} iconAlt="Place Value" yearNum="2" />
-                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="In year 2, the learner will solve addition and subtraction problems involving numbers, measures, and quantities." icon={additionSubtraction} iconAlt="Addition and Subtraction" />
-                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description="In year 2, the learner will solve multiplication and division problems using the 2, 3, 5, and 10 multiplication tables." icon={multiplicationDivision} iconAlt="Multiplication and Division" />
-                                <TopicContainer style={styles.topicContainer} title="Fractions" description="Here, the learner will continue to learn about halves, and quarters, however, they will also be introduced to thirds. They will also gain an understanding of terminology such as equivelence, denominator, and numerator." icon={fractions} iconAlt="Fractions" />
-                                <TopicContainer style={styles.topicContainer} title="Measurement" description="In addition to learning weight, volume, time, money, length, and height, they will also learn how to measure temperature." icon={measurementIcon} iconAlt="Measurement" />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will begin to describe 2D and 3D shapes using accurate terminology." icon={shapes} iconAlt="Properties of Shapes" />
-                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="The learner will begin to arrange shapes into patterns, and talk about rotation." icon={shapeRotation} iconAlt="Position and Direction of Shapes" />
+                                <TopicContainer style={styles.topicContainer} title="Number and Place Value" description="Here, the learner will begin to compare and order numbers from 1 to 100, and will begin to recognise the place value for two digit numbers. They will also learn how to use greater than (>), and less than (<) symbols." icon={placeValue} iconAlt="Place Value" topicName="numberplacevalue" yearNum="2" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Addition and Subtraction" description="In year 2, the learner will solve addition and subtraction problems involving numbers, measures, and quantities." icon={additionSubtraction} iconAlt="Addition and Subtraction" topicName="additionsubtraction" yearNum="2" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Multiplication and Division" description="In year 2, the learner will solve multiplication and division problems using the 2, 3, 5, and 10 multiplication tables." icon={multiplicationDivision} iconAlt="Multiplication and Division" topicName="multiplicationdivision" yearNum="2" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Fractions" description="Here, the learner will continue to learn about halves, and quarters, however, they will also be introduced to thirds. They will also gain an understanding of terminology such as equivelence, denominator, and numerator." icon={fractions} iconAlt="Fractions" topicName="fractions" yearNum="2" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Measurement" description="In addition to learning weight, volume, time, money, length, and height, they will also learn how to measure temperature." icon={measurementIcon} iconAlt="Measurement" topicName="measurement" yearNum="2" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Properties of Shapes" description="The learner will begin to describe 2D and 3D shapes using accurate terminology." icon={shapes} iconAlt="Properties of Shapes" topicName="propertiesofshapes" yearNum="2" stage="1" />
+                                <TopicContainer style={styles.topicContainer} title="Geometry - Position and Direction" description="The learner will begin to arrange shapes into patterns, and talk about rotation." icon={shapeRotation} iconAlt="Position and Direction of Shapes" topicName="positiondirectionshapes" yearNum="2" stage="1" />
                             </div>
                         </div>
                     </div>

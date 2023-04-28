@@ -15,15 +15,14 @@ function NumberPlaceValue() {
     const [currentQuestionAnswer, setCurrentQuestionAnswer] = useState('');
     const [howStudentFeels, setHowStudentFeels] = useState('');
     const [feedback, setFeedback] = useState('');
-
-    // console.log(id)
-    // console.log(studentAnswer)
+    const [topicIndex, setTopicIndex] = useState(0);
 
     function chooseRandomQuestion() {
-        const randNum = Math.floor(Math.random() * curriculumData[0][0][0].questions.length);
+        const randNum = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions.length);
         setCurrentQuestionIndex(randNum);
-        setCurrentQuestion(curriculumData[0][0][yearID - yearID].questions[randNum].question);
-        setCurrentQuestionAnswer(curriculumData[0][0][0].questions[randNum].answer);
+        setCurrentQuestion(curriculumData[yearID - 1][topicIndex].questions[randNum].question);
+        console.log("Data:", curriculumData)
+        setCurrentQuestionAnswer(curriculumData[yearID - 1][topicIndex].questions[randNum].answer);
     }
 
     useEffect(() => {
@@ -55,11 +54,11 @@ function NumberPlaceValue() {
         const newResponse = processStudentResponse(howStudentFeels);
 
         if (currentQuestionAnswer.includes(studentAnswer)) {
-            const randomPosFeedbackIndex = Math.floor(Math.random() * curriculumData[0][0][0].questions[currentQuestionIndex].possibleFeedback.positiveFeedback.length)
-            const positiveFeedback = curriculumData[0][0][0].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
+            const randomPosFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback.length)
+            const positiveFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
-        const negativeFeedback = curriculumData[0][0][0].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
+        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
         return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
     }
 

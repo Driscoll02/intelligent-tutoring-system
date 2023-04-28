@@ -6,7 +6,7 @@ import NavBar from "../navbar";
 import { Button } from "@mui/material";
 import { stemmer } from 'stemmer';
 
-function AdditionAndSubtraction() {
+function AdditionAndSubtraction(props) {
     const { id } = useParams();
     const yearID = Number(id.charAt(1));
     const [studentAnswer, setStudentAnswer] = useState('');
@@ -15,12 +15,19 @@ function AdditionAndSubtraction() {
     const [currentQuestionAnswer, setCurrentQuestionAnswer] = useState('');
     const [howStudentFeels, setHowStudentFeels] = useState('');
     const [feedback, setFeedback] = useState('');
+    const [topicIndex, setTopicIndex] = useState(1);
+    const [pageTitle, setPageTitle] = useState('Addition and Subtraction');
 
     function chooseRandomQuestion() {
-        const randNum = Math.floor(Math.random() * curriculumData[0][0][1].questions.length);
+        const randNum = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions.length);
+
+        if (yearID === 6) {
+            setPageTitle('Addition, Subtraction, Multiplication, and Division')
+        }
+
         setCurrentQuestionIndex(randNum);
-        setCurrentQuestion(curriculumData[0][0][1].questions[randNum].question);
-        setCurrentQuestionAnswer(curriculumData[0][0][1].questions[randNum].answer);
+        setCurrentQuestion(curriculumData[yearID - 1][topicIndex].questions[randNum].question);
+        setCurrentQuestionAnswer(curriculumData[yearID - 1][topicIndex].questions[randNum].answer);
     }
 
     useEffect(() => {
@@ -29,7 +36,6 @@ function AdditionAndSubtraction() {
 
     function processStudentResponse(studentSentimentAnswer) {
         // Natural language processing to aid semantic analysis
-        console.log(studentSentimentAnswer)
         const tokenised_words = studentSentimentAnswer.split(" ");
         const lowercaseWords = tokenised_words.map((word) => word.toLowerCase());
         const stemmedWords = lowercaseWords.map((word) => stemmer(word));
@@ -52,21 +58,18 @@ function AdditionAndSubtraction() {
         const newResponse = processStudentResponse(howStudentFeels);
 
         if (currentQuestionAnswer.includes(studentAnswer)) {
-            const randomPosFeedbackIndex = Math.floor(Math.random() * curriculumData[0][0][1].questions[currentQuestionIndex].possibleFeedback.positiveFeedback.length)
-            const positiveFeedback = curriculumData[0][0][1].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
+            const randomPosFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback.length)
+            const positiveFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
-        const negativeFeedback = curriculumData[0][0][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
+        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
         return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
     }
 
     function generateSentimentResponse(value) {
         const similarityObject = new Similarity();
 
-        console.log("Value", value)
-
         const answerSemantics = similarityObject.analyseSemantics(value)
-        console.log(answerSemantics);
         if(answerSemantics.score > 0 && value.includes("order")) {
             return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
         } else if(answerSemantics.score > 0 && value.includes("less than")) {
@@ -93,8 +96,6 @@ function AdditionAndSubtraction() {
             const similarityObject = new Similarity();
     
             const closestWord = similarityObject.getBestMatch(studentAnswer);
-            console.log(closestWord);
-            console.log("Semantic:", similarityObject.analyseSemantics(howStudentFeels));
         } else {
             return setFeedback("Both fields must be completed before submitting your answer.");
         }
@@ -114,7 +115,7 @@ function AdditionAndSubtraction() {
             <div style={styles.centerDiv}>
                 <div style={styles.topCenterDiv}>
                     <h2>Year {id.charAt(1)}</h2>
-                    <h2>Addition and Subtraction</h2>
+                    <h2>{pageTitle}</h2>
                 </div>
                 <div style={styles.midCenterDiv}>
                     <div style={styles.leftMidCenterDiv}>

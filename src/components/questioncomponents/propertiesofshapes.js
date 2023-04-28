@@ -3,41 +3,89 @@ import { useParams } from 'react-router-dom';
 import Similarity from "../../NeuralNet/similaritysentiment";
 import { curriculumData } from "../../data/curriculum";
 import NavBar from "../navbar";
-import { Button } from "@mui/material"
-import NeuralNet from "../../NeuralNet/neuralnet";
+import { Button } from "@mui/material";
+import { stemmer } from 'stemmer';
 
-function NumberPlaceValue() {
+function PropertiesOfShapes() {
     const { id } = useParams();
+    const yearID = Number(id.charAt(1));
     const [studentAnswer, setStudentAnswer] = useState('');
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(null);
     const [currentQuestion, setCurrentQuestion] = useState('');
     const [currentQuestionAnswer, setCurrentQuestionAnswer] = useState('');
     const [howStudentFeels, setHowStudentFeels] = useState('');
     const [feedback, setFeedback] = useState('');
-
-    NeuralNet();
-
-    // console.log(id)
-    // console.log(studentAnswer)
+    const [topicIndex, setTopicIndex] = useState(5);
 
     function chooseRandomQuestion() {
-        const randNum = Math.floor(Math.random() * curriculumData[0][0][0].questions.length);
+        const randNum = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions.length);
         setCurrentQuestionIndex(randNum);
-        setCurrentQuestion(curriculumData[0][0][0].questions[randNum].question);
-        setCurrentQuestionAnswer(curriculumData[0][0][0].questions[randNum].answer);
+        setCurrentQuestion(curriculumData[yearID - 1][topicIndex].questions[randNum].question);
+        console.log("Data:", curriculumData)
+        setCurrentQuestionAnswer(curriculumData[yearID - 1][topicIndex].questions[randNum].answer);
     }
 
     useEffect(() => {
         chooseRandomQuestion();
     }, []);
 
-    function checkAnswer() {
-        if (currentQuestionAnswer.includes(studentAnswer)) {
-            const positiveFeedback = curriculumData[0][0][0].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[0];
-            return setFeedback(positiveFeedback);
+    function processStudentResponse(studentSentimentAnswer) {
+        // Natural language processing to aid semantic analysis
+        console.log(studentSentimentAnswer)
+        const tokenised_words = studentSentimentAnswer.split(" ");
+        const lowercaseWords = tokenised_words.map((word) => word.toLowerCase());
+        const stemmedWords = lowercaseWords.map((word) => stemmer(word));
+        const joinedString = stemmedWords.join(" ");
+        
+        // Remove any irrelevent characters
+        let processedString = [];
+        for (let i = 0; i < joinedString.length; i++) {
+            if(joinedString[i] !== '!' && joinedString[i] !== '?' && joinedString[i] !== '"') {
+                processedString.push(joinedString[i]);
+            }
         }
-        const negativeFeedback = curriculumData[0][0][0].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
-        return setFeedback(negativeFeedback);
+
+        processedString = processedString.join('')
+
+        return processedString;
+    }
+
+    function checkAnswer() {
+        const newResponse = processStudentResponse(howStudentFeels);
+
+        if (currentQuestionAnswer.includes(studentAnswer)) {
+            const randomPosFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback.length)
+            const positiveFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
+            return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
+        }
+        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
+        return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
+    }
+
+    function generateSentimentResponse(value) {
+        const similarityObject = new Similarity();
+
+        console.log("Value", value)
+
+        const answerSemantics = similarityObject.analyseSemantics(value)
+        console.log(answerSemantics);
+        if(answerSemantics.score > 0 && value.includes("order")) {
+            return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
+        } else if(answerSemantics.score > 0 && value.includes("less than")) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting downwards."
+        } else if(answerSemantics.score > 0 && value.includes("more than")) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting upwards."
+        } else if(answerSemantics.score > 0) {
+            return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
+        } else if(answerSemantics.score > 0 && value.includes("order")) {
+            return "Don't worry about struggling with order of numbers. All the time you put in will pay off eventually. Nice try!"
+        } else if(answerSemantics.score > 0 && value.includes("less than")) {
+            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with less than questions. You can get as much practice as you'd like. Nice try!"
+        } else if(answerSemantics.score < 0 && value.includes("more than")) {
+            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with more than questions. You can get as much practice as you'd like."
+        } else {
+            return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
+        }
     }
 
     function submitAnswer() {
@@ -48,10 +96,18 @@ function NumberPlaceValue() {
     
             const closestWord = similarityObject.getBestMatch(studentAnswer);
             console.log(closestWord);
-            console.log("Semantic:", similarityObject.analyseSemantics(studentAnswer));
+            console.log("Semantic:", similarityObject.analyseSemantics(howStudentFeels));
         } else {
-            return setFeedback("You need to answer the question and how confident you are before submitting your answer.");
+            return setFeedback("Both fields must be completed before submitting your answer.");
         }
+    }
+
+    function NextQuestion() {
+        chooseRandomQuestion();
+
+        setFeedback('');
+        setStudentAnswer('');
+        setHowStudentFeels('');
     }
 
     return (
@@ -60,7 +116,7 @@ function NumberPlaceValue() {
             <div style={styles.centerDiv}>
                 <div style={styles.topCenterDiv}>
                     <h2>Year {id.charAt(1)}</h2>
-                    <h2>Number and Place Value</h2>
+                    <h2>Properties of Shapes</h2>
                 </div>
                 <div style={styles.midCenterDiv}>
                     <div style={styles.leftMidCenterDiv}>
@@ -78,7 +134,7 @@ function NumberPlaceValue() {
                 </div>
                 <div style={styles.bottomCenterDiv}>
                     <Button variant="contained" style={styles.submitAnswerButton} onClick={() => submitAnswer(studentAnswer)}>Submit Answer</Button>
-                    <Button variant="contained" style={styles.nextQuestionButton} onClick={() => submitAnswer(studentAnswer)}>Next Question</Button>
+                    <Button variant="contained" style={styles.nextQuestionButton} onClick={() => NextQuestion()}>Next Question</Button>
                 </div>
             </div>
         </div>
@@ -170,4 +226,4 @@ let styles = {
     },
 }
 
-export default NumberPlaceValue;
+export default PropertiesOfShapes;
