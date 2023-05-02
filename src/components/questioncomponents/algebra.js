@@ -64,24 +64,17 @@ function Algebra() {
     function generateSentimentResponse(value) {
         const similarityObject = new Similarity();
 
-        console.log("Value", value)
-
         const answerSemantics = similarityObject.analyseSemantics(value)
-        console.log(answerSemantics);
-        if(answerSemantics.score > 0 && value.includes("order")) {
-            return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting downwards."
-        } else if(answerSemantics.score > 0 && value.includes("more than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting upwards."
+
+        // Rule based system
+        if (answerSemantics.score > 0 && value.includes("equation")) {
+            return "I can see you are very confident in your answer. I like your use of the term 'equation'. It shows you have a good understanding of the terminology. Good job!"
+        } else if(answerSemantics.score > 0 && value.includes("formulae")) {
+            return "I can see you are very confident in your answer. I like your use of the term 'formulae'. It shows you have a good understanding of the terminology. Good job!"
         } else if(answerSemantics.score > 0) {
             return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
-        } else if(answerSemantics.score > 0 && value.includes("order")) {
-            return "Don't worry about struggling with order of numbers. All the time you put in will pay off eventually. Nice try!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with less than questions. You can get as much practice as you'd like. Nice try!"
-        } else if(answerSemantics.score < 0 && value.includes("more than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with more than questions. You can get as much practice as you'd like."
+        } else if(answerSemantics.score < 0 && value.includes("algebra")) {
+            return "Algebra is hard. You definitely shouldn't worry if you don't get it. Algebra is the most difficult topic you will study in primary school."
         } else {
             return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
         }

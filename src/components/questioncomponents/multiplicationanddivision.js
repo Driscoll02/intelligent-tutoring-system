@@ -67,24 +67,19 @@ function MultiplicationDivision() {
     function generateSentimentResponse(value) {
         const similarityObject = new Similarity();
 
-        console.log("Value", value)
-
         const answerSemantics = similarityObject.analyseSemantics(value)
-        console.log(answerSemantics);
-        if(answerSemantics.score > 0 && value.includes("order")) {
-            return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting downwards."
-        } else if(answerSemantics.score > 0 && value.includes("more than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting upwards."
+
+        // Rule based system
+        if(answerSemantics.score > 0 && (value.includes("multiplying") || value.includes("multiplication"))) {
+            return "I can see you are very confident in your answer. If you are finding multiplying numbers too easy, maybe you could try some problems from the next year. Good job!"
+        } else if(answerSemantics.score < 0 && (value.includes("dividing") || value.includes("division"))) {
+            return "I can see you are very confident in your answer. If you are finding division questions too easy, maybe you could try some problems from the next year. Good job!"
         } else if(answerSemantics.score > 0) {
             return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
-        } else if(answerSemantics.score > 0 && value.includes("order")) {
-            return "Don't worry about struggling with order of numbers. All the time you put in will pay off eventually. Nice try!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with less than questions. You can get as much practice as you'd like. Nice try!"
-        } else if(answerSemantics.score < 0 && value.includes("more than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with more than questions. You can get as much practice as you'd like."
+        } else if(answerSemantics.score < 0 && (value.includes("multiplying") || value.includes("multiplication"))) {
+            return "Don't worry about struggling with multiplication. Maybe you could try the previous year? There's nothing wrong with going back and trying easier questions."
+        } else if(answerSemantics.score < 0 && (value.includes("dividing") || value.includes("division"))) {
+            return "Don't worry about struggling with division. Maybe you could try the previous year? There's nothing wrong with going back and trying easier questions."
         } else {
             return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
         }

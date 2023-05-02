@@ -73,20 +73,24 @@ function Fractions() {
 
         const answerSemantics = similarityObject.analyseSemantics(value)
         console.log(answerSemantics);
-        if(answerSemantics.score > 0 && value.includes("order")) {
-            return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting downwards."
-        } else if(answerSemantics.score > 0 && value.includes("more than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting upwards."
+
+        // Rule based system
+        if(answerSemantics.score > 0 && (value.includes("quarter") || value.includes("0.25" || value.includes("quarters") || value.includes("1/4")))) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with quarters."
+        } else if(answerSemantics.score > 0 && (value.includes("half") || value.includes("0.5" || value.includes("halves") || value.includes("1/2")))) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with halves."
+        } else if(answerSemantics.score > 0 && (value.includes("three quarter") || value.includes("0.75" || value.includes("three quarters") || value.includes("3/4")))) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with visualising and multiplying multiple quarters."
         } else if(answerSemantics.score > 0) {
             return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
-        } else if(answerSemantics.score > 0 && value.includes("order")) {
-            return "Don't worry about struggling with order of numbers. All the time you put in will pay off eventually. Nice try!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with less than questions. You can get as much practice as you'd like. Nice try!"
-        } else if(answerSemantics.score < 0 && value.includes("more than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with more than questions. You can get as much practice as you'd like."
+        } else if(answerSemantics.score < 0 && (value.includes("half") || value.includes("0.5" || value.includes("halves") || value.includes("1/2")))) {
+            return "Getting used to working with halves is a fundamental problem that you need to become comfortable with. But don't worry, you can spend as much time as you'd like working with halves."
+        } else if(answerSemantics.score < 0 && value.includes("fractions")) {
+            return "It's very common for people to struggle with these problems. Don't worry about struggling with fractions questions. You can get as much practice as you'd like. Nice try!"
+        } else if(answerSemantics.score < 0 && (value.includes("quarter") || value.includes("0.25" || value.includes("quarters") || value.includes("1/4")))) {
+            return "Don't worry if you are not confident with your answer. Quarters are hard and you'll get the eventually."
+        } else if(answerSemantics.score < 0 && (value.includes("three quarter") || value.includes("0.75" || value.includes("three quarters") || value.includes("3/4")))) {
+            return "Visualising and working with multiples of quarters can be tough. This is something a lot of students struggle with, and it's okay that you are too. Keep trying, you'll get it eventually."
         } else {
             return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
         }

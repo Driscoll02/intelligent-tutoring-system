@@ -65,10 +65,8 @@ function NumberPlaceValue() {
     function generateSentimentResponse(value) {
         const similarityObject = new Similarity();
 
-        console.log("Value", value)
-
         const answerSemantics = similarityObject.analyseSemantics(value)
-        console.log(answerSemantics);
+
         if(answerSemantics.score > 0 && value.includes("order")) {
             return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
         } else if(answerSemantics.score > 0 && value.includes("less than")) {
@@ -77,9 +75,9 @@ function NumberPlaceValue() {
             return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting upwards."
         } else if(answerSemantics.score > 0) {
             return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
-        } else if(answerSemantics.score > 0 && value.includes("order")) {
+        } else if(answerSemantics.score < 0 && value.includes("order")) {
             return "Don't worry about struggling with order of numbers. All the time you put in will pay off eventually. Nice try!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
+        } else if(answerSemantics.score < 0 && value.includes("less than")) {
             return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with less than questions. You can get as much practice as you'd like. Nice try!"
         } else if(answerSemantics.score < 0 && value.includes("more than")) {
             return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with more than questions. You can get as much practice as you'd like."

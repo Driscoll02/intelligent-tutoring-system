@@ -75,20 +75,22 @@ function Measurement() {
 
         const answerSemantics = similarityObject.analyseSemantics(value)
         console.log(answerSemantics);
-        if(answerSemantics.score > 0 && value.includes("order")) {
-            return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting downwards."
-        } else if(answerSemantics.score > 0 && value.includes("more than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting upwards."
+        if(answerSemantics.score > 0 && (value.includes("heavy") && value.includes("weight"))) {
+            return "I can see you are confident in your answer. It's good to see that you know heavy is a term used to describe weight. Good job!"
+        } else if(answerSemantics.score > 0 && (value.includes("short") && value.includes("length"))) {
+            return "I can see you are confident in your answer. It's good to see that you know short is a term used to describe length. Good job!"
+        } else if(answerSemantics.score > 0 && (value.includes("long") && value.includes("length"))) {
+            return "I can see you are confident in your answer. It's good to see that you know long is a term used to describe length. Good job!"
+        } else if(answerSemantics.score > 0 && (value.includes("years") && value.includes("time"))) {
+            return "I can see you are confident in your answer. It's good to see that you know years is a term used to describe time. Fun fact: One year is 365 days long. Good job!"
         } else if(answerSemantics.score > 0) {
             return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
-        } else if(answerSemantics.score > 0 && value.includes("order")) {
-            return "Don't worry about struggling with order of numbers. All the time you put in will pay off eventually. Nice try!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with less than questions. You can get as much practice as you'd like. Nice try!"
-        } else if(answerSemantics.score < 0 && value.includes("more than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with more than questions. You can get as much practice as you'd like."
+        } else if(answerSemantics.score > 0 && (value.includes("heavy") && value.includes("length"))) {
+            return "Heavy is not a word used to describe length. Keep trying! You'll get it in the end."
+        } else if(answerSemantics.score > 0 && (value.includes("short") && value.includes("time"))) {
+            return "Short is not a word used to describe time. Keep trying! You'll get it in the end."
+        } else if(answerSemantics.score > 0 && (value.includes("half") && value.includes("weight"))) {
+            return "Half is not a word used to describe weight. Keep trying! You'll get it in the end."
         } else {
             return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
         }

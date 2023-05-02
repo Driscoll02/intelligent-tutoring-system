@@ -188,30 +188,27 @@ export const curriculumData = [
             tag: "fractions",
             questions: [
                 {
-                    image: "../../public/fractions/halfFractionLarge.png",
                     question: ["What fraction is 0.5 a pizza?"],
                     answer: ["half", "one half", "a half", "1/2"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.5 is equal to a half!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 },
                 {
-                    image: "../../public/fractions/quarterFractionLarge.png",
                     question: ["What fraction is 0.25 a pizza?"],
                     answer: ["quarter", "one quarter", "a quarter", "1/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }   
                 },
                 {
-                    image: "../../public/fractions/threeQuarterFractionLarge.png",
                     question: ["What fraction is 0.75 a pizza?"],
                     answer: ["three quarter", "three quarters", "3/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter! So three quarters is equal to 0.75.", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 }
             ]
@@ -321,19 +318,19 @@ export const curriculumData = [
             tag: "number and place value",
             questions: [
                 {
-                    question: ["What number is 1 more than 4?"],
-                    answer: ["5"],
+                    question: ["What number is 10 more than 55?"],
+                    answer: ["65"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["This is incorrect, but you're very close!", "Remember to count up from 4.", "Are you sure you counted up, and not down?"]
+                        negativeFeedback: ["This is incorrect, but you're very close!", "Remember to count up from 55.", "Are you sure you counted up, and not down?"]
                     }
                 },
                 {
-                    question: ["What number is 5 more than 5?"],
-                    answer: ["10"],
+                    question: ["What number is 5 more than 94?"],
+                    answer: ["99"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["This is incorrect, but you're very close!", "Remember to count up from 5.", "Are you sure you counted up, and not down?"]
+                        negativeFeedback: ["This is incorrect, but you're very close!", "Remember to count up from 94.", "Are you sure you counted up, and not down?"]
                     }
                 },
                 {
@@ -341,59 +338,75 @@ export const curriculumData = [
                     answer: ["8"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["This is incorrect, but you're very close!", "Remember to count down from the original number.", "Are you sure you counted down, and not up?"]
+                        negativeFeedback: ["This is incorrect, but you're very close!", "Remember to count down from the start number.", "Are you sure you counted down, and not up?"]
                     }
                 },
                 {
-                    question: ["Write all the numbers from 1 to 10"],
-                    answer: ["1, 2, 3, 4, 5, 6, 7, 8, 9, 10", "1 2 3 4 5 6 7 8 9 10", "12345678910"],
+                    question: ["Write all the numbers from 60 to 70"],
+                    answer: ["60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70", "60 61 62 63 64 65 66 67 68 69 70"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure you count upwards.", "This is incorrect, but you're very close!", "Remember to count up from 1, and add 1 every time.", "Are you sure you counted up, and not down?", "Remember, start from 1 and not 0"]
+                        negativeFeedback: ["Make sure you count upwards.", "This is incorrect, but you're very close!", "Remember to start at 60, and add 1 every time.", "Are you sure you counted up, and not down?", "Remember, start from 60 and not 61"]
                     }
                 },
                 {
-                    question: ["Put these numbers in order: 5, 16, 18, 2, 3"],
-                    answer: ["2, 3, 5, 16, 18", "2 3 5 16 18", "2351618"],
+                    question: ["Put these numbers in order: 22, 16, 78, 23, 41"],
+                    answer: ["16, 22, 23, 41, 78", "16 22 23 41 78", "1622234178"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
                         negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
                     }
-                }
+                },
+                {
+                    question: ["Is this statement true or false? 87 < 92"],
+                    answer: ["true", "True"],
+                    possibleFeedback: {
+                        positiveFeedback: ["This is correct!", "Well done!"],
+                        negativeFeedback: ["Make sure you are checking which number is less than or greater than the other.", "This is incorrect, but you're very close! You should try again.", "This is incorrect, don't just look at the higher number.", "Remember to look at the direction of the symbol."]
+                    }
+                },
+                {
+                    question: ["Is this statement true or false? 45 > 78"],
+                    answer: ["false", "False"],
+                    possibleFeedback: {
+                        positiveFeedback: ["This is correct!", "Well done!"],
+                        negativeFeedback: ["This is wrong. Don't worry we can work together on this.", "This is incorrect, don't just look at the higher number.", "Remember to look at the direction of the symbol."]
+                    }
+                },
             ]
         },
         {
             tag: "addition and subtraction",
             questions: [
                 {
-                    question: ["5 + 4"],
+                    question: ["There are 5 apples. If we add 4 more apples, how many apples do we have in total?"],
                     answer: ["9"],
                     possibleFeedback: {
-                        positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        positiveFeedback: ["Great job, you added the numbers correctly!", "Well done, you found the total number of apples!"],
+                        negativeFeedback: ["Remember to add the two numbers together, don't forget any!", "Check your work and make sure you counted all the apples."]
                     }
                 },
                 {
-                    question: ["10 - 6"],
+                    question: ["There are 10 marbles. If we take away 6 marbles, how many marbles do we have left?"],
                     answer: ["4"],
                     possibleFeedback: {
-                        positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        positiveFeedback: ["You did it! You subtracted correctly!", "Good job finding the answer!"],
+                        negativeFeedback: ["Don't forget to subtract the correct amount of marbles!", "Remember to count backwards to find the answer."]
                     }
                 },
                 {
-                    question: ["18 - 5"],
+                    question: ["There are 18 cupcakes. If we take away 5 cupcakes, how many cupcakes do we have left?"],
                     answer: ["13"],
                     possibleFeedback: {
-                        positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        positiveFeedback: ["Excellent work! You found the correct answer!", "You're doing great at subtraction!"],
+                        negativeFeedback: ["Take away the correct number of cupcakes, and check your work carefully!", "Don't forget to double-check your subtraction."]
                     }  
                 },
                 {
-                    question: ["15 + 2"],
+                    question: ["There are 15 pencils. If we add 2 more pencils, how many pencils do we have in total?"],
                     answer: ["17"],
                     possibleFeedback: {
-                        positiveFeedback: ["This is correct!", "Well done!"],
+                        positiveFeedback: [ "You're adding like a pro!", "Awesome job finding the total!"],
                         negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
                     }  
                 },
@@ -419,8 +432,8 @@ export const curriculumData = [
             tag: "multiplication and division",
             questions: [
                 {
-                    question: ["2 x 3"],
-                    answer: ["6"],
+                    question: ["2 x 5"],
+                    answer: ["10"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
                         negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
@@ -435,8 +448,8 @@ export const curriculumData = [
                     }    
                 },
                 {
-                    question: ["10 x 3"],
-                    answer: ["30"],
+                    question: ["10 x 5"],
+                    answer: ["50"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
                         negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
@@ -451,8 +464,8 @@ export const curriculumData = [
                     }    
                 },
                 {
-                    question: ["5 x 3"],
-                    answer: ["15"],
+                    question: ["5 x 10"],
+                    answer: ["50"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
                         negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
@@ -467,67 +480,48 @@ export const curriculumData = [
                     }    
                 },
                 {
-                    question: ["6 \u00F7 2"],
-                    answer: ["3"],
-                    possibleFeedback: {
-                        positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
-                    }    
-                },
-                {
-                    question: ["20 \u00F7 10"],
-                    answer: ["2"],
-                    possibleFeedback: {
-                        positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
-                    }    
-                },
-                {
-                    question: ["5 \u00F7 1"],
-                    answer: ["5"],
-                    possibleFeedback: {
-                        positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
-                    }    
-                },
-                {
                     question: ["10 \u00F7 5"],
                     answer: ["2"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
                         negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
                     }    
-                }
+                },
+                {
+                    question: ["10 \u00F7 10"],
+                    answer: ["1"],
+                    possibleFeedback: {
+                        positiveFeedback: ["This is correct!", "Well done!"],
+                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                    }    
+                },
             ]
         },
         {
             tag: "fractions",
             questions: [
                 {
-                    image: "../../public/fractions/halfFractionLarge.png",
-                    question: ["What is this fraction?"],
+                    question: ["What fraction is 0.5 a pizza?"],
                     answer: ["half", "one half", "a half", "1/2"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.5 is equal to a half!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 },
                 {
-                    image: "../../public/fractions/quarterFractionLarge.png",
-                    question: ["What is this fraction?"],
+                    question: ["What fraction is 0.25 a pizza?"],
                     answer: ["quarter", "one quarter", "a quarter", "1/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }   
                 },
                 {
-                    image: "../../public/fractions/threeQuarterFractionLarge.png",
-                    question: ["What is this fraction?"],
+                    question: ["What fraction is 0.75 a pizza?"],
                     answer: ["three quarter", "three quarters", "3/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter! So three quarters is equal to 0.75.", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 }
             ]
@@ -541,7 +535,7 @@ export const curriculumData = [
                     answer: ["long"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
                     }    
                 },
                 {
@@ -820,30 +814,27 @@ export const curriculumData = [
             tag: "fractions",
             questions: [
                 {
-                    image: "../../public/fractions/halfFractionLarge.png",
                     question: ["What fraction is 0.5 a pizza?"],
                     answer: ["half", "one half", "a half", "1/2"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.5 is equal to a half!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 },
                 {
-                    image: "../../public/fractions/quarterFractionLarge.png",
                     question: ["What fraction is 0.25 a pizza?"],
                     answer: ["quarter", "one quarter", "a quarter", "1/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }   
                 },
                 {
-                    image: "../../public/fractions/threeQuarterFractionLarge.png",
                     question: ["What fraction is 0.75 a pizza?"],
-                    answer: ["tree quarter", "three quarters", "3/4"],
+                    answer: ["three quarter", "three quarters", "3/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter! So three quarters is equal to 0.75.", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 }
             ]
@@ -1107,30 +1098,27 @@ export const curriculumData = [
             tag: "fractions",
             questions: [
                 {
-                    image: "../../public/fractions/halfFractionLarge.png",
                     question: ["What fraction is 0.5 a pizza?"],
                     answer: ["half", "one half", "a half", "1/2"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.5 is equal to a half!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 },
                 {
-                    image: "../../public/fractions/quarterFractionLarge.png",
                     question: ["What fraction is 0.25 a pizza?"],
                     answer: ["quarter", "one quarter", "a quarter", "1/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }   
                 },
                 {
-                    image: "../../public/fractions/threeQuarterFractionLarge.png",
                     question: ["What fraction is 0.75 a pizza?"],
                     answer: ["three quarter", "three quarters", "3/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter! So three quarters is equal to 0.75.", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 }
             ]
@@ -1394,30 +1382,27 @@ export const curriculumData = [
             tag: "fractions",
             questions: [
                 {
-                    image: "../../public/fractions/halfFractionLarge.png",
                     question: ["What fraction is 0.5 a pizza?"],
                     answer: ["half", "one half", "a half", "1/2"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.5 is equal to a half!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 },
                 {
-                    image: "../../public/fractions/quarterFractionLarge.png",
                     question: ["What fraction is 0.25 a pizza?"],
                     answer: ["quarter", "one quarter", "a quarter", "1/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }   
                 },
                 {
-                    image: "../../public/fractions/threeQuarterFractionLarge.png",
                     question: ["What fraction is 0.75 a pizza?"],
                     answer: ["three quarter", "three quarters", "3/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter! So three quarters is equal to 0.75.", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 }
             ]
@@ -1676,30 +1661,27 @@ export const curriculumData = [
             tag: "fractions",
             questions: [
                 {
-                    image: "../../public/fractions/halfFractionLarge.png",
                     question: ["What fraction is 0.5 a pizza?"],
                     answer: ["half", "one half", "a half", "1/2"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.5 is equal to a half!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 },
                 {
-                    image: "../../public/fractions/quarterFractionLarge.png",
                     question: ["What fraction is 0.25 a pizza?"],
                     answer: ["quarter", "one quarter", "a quarter", "1/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter!", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }   
                 },
                 {
-                    image: "../../public/fractions/threeQuarterFractionLarge.png",
                     question: ["What fraction is 0.75 a pizza?"],
                     answer: ["three quarter", "three quarters", "3/4"],
                     possibleFeedback: {
                         positiveFeedback: ["This is correct!", "Well done!"],
-                        negativeFeedback: ["Make sure the numbers go upwards.", "This is incorrect, but you're very close! Try changing some numbers", "Remember to count up, you're almost there!", "Are you sure your numbers are going up and not down?", "Remember, start from the lowest number and go upwards."]
+                        negativeFeedback: ["This is incorrect.", "This is incorrect, but you're very close!", "Try to imagine the pizza in your head.", "Remember that 0.25 is equal to a quarter! So three quarters is equal to 0.75.", "Remember, imagine a pizza in your head, you can even shade sections in your head too."]
                     }  
                 }
             ]
@@ -1798,11 +1780,3 @@ export const curriculumData = [
 ]
 
 // KS1 & KS2 curriculum: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
-// Resource used to make fraction images: https://teachablemath.com/apps/fraction-shape-maker/
-// Resource used to make analogue clock images: https://helpingwithmath.com/generators/3md1-clock-face-generator01/
-
-// Shape colours:
-// inner: #37c220
-// outline: #1b1313
-// fraction red: #dd3333
-// rectangle dimensions: w:600 h:200

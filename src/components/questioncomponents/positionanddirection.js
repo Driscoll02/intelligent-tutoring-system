@@ -68,21 +68,24 @@ function PositionAndDirection() {
         console.log("Value", value)
 
         const answerSemantics = similarityObject.analyseSemantics(value)
-        console.log(answerSemantics);
-        if(answerSemantics.score > 0 && value.includes("order")) {
-            return "I can see you are confident in your answer. It's good to see you're confident with the order of numbers. Good job!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting downwards."
-        } else if(answerSemantics.score > 0 && value.includes("more than")) {
-            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with counting upwards."
+
+        // Rule based system
+        if (answerSemantics.score > 0 && value.includes("90 degrees")) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with rotating shapes 90 degrees."
+        } else if(answerSemantics.score > 0 && value.includes("45 degrees")) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with rotating shapes 45 degrees."
+        } else if(answerSemantics.score > 0 && value.includes("180 degrees")) {
+            return "It's great to see you are confident with your answer. It's also good to see you're getting more comfortable with rotating shapes 180 degrees."
         } else if(answerSemantics.score > 0) {
             return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
-        } else if(answerSemantics.score > 0 && value.includes("order")) {
-            return "Don't worry about struggling with order of numbers. All the time you put in will pay off eventually. Nice try!"
-        } else if(answerSemantics.score > 0 && value.includes("less than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with less than questions. You can get as much practice as you'd like. Nice try!"
-        } else if(answerSemantics.score < 0 && value.includes("more than")) {
-            return "It's not uncommon for people to struggle with these problems. Don't worry about struggling with more than questions. You can get as much practice as you'd like."
+        } else if(answerSemantics.score < 0 && value.includes("90 degrees")) {
+            return "Rotating shapes by 90 degrees is often difficult if you haven't done it before. However, it is a fundamental part of mathematics which you'll get better at if you keep trying."
+        } else if(answerSemantics.score < 0 && value.includes("45 degrees")) {
+            return "Rotating shapes by 45 degrees is often difficult if you haven't done it before. However, it is a fundamental part of mathematics which you'll get better at if you keep trying."
+        } else if(answerSemantics.score < 0 && value.includes("180 degrees")) {
+            return "Rotating shapes by 180 degrees is often difficult if you haven't done it before. However, it is a fundamental part of mathematics which you'll get better at if you keep trying."
+        } else if(answerSemantics.score < 0 && value.includes("rotate")) {
+            return "Visualising how shapes rotate is difficult to grasp. Keep trying, and if you're still struggling, you can speak to your teacher and they will help."
         } else {
             return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
         }
