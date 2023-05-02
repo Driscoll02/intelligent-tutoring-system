@@ -1,79 +1,181 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { useMediaQuery } from "@mui/material";
 
-class NavBar extends Component {
-    constructor(props) {
-        super(props);
+function NavBar() {
+    const [isBrowseNavlinkHover, setIsBrowseNavlinkHover] = useState(false);
+    const [isResourcesNavlinkHover, setIsResourcesNavlinkHover] = useState(false);
+    const [isAboutUsNavlinkHover, setIsAboutUsNavlinkHover] = useState(false);
+    const [isContactNavlinkHover, setIsContactNavlinkHover] = useState(false);
 
-        this.state = {
-            isBrowseNavlinkHover: false,
-            isResourcesNavlinkHover: false,
-            isAboutUsNavlinkHover: false,
-            isContactNavlinkHover: false,
-        }
+    const wideScreenMatches = useMediaQuery('(min-width:1400px)');
+    const standardScreenMatches = useMediaQuery('(min-width:1200px)');
+    const smallStandardScreenMatches = useMediaQuery('(min-width:924px)');
+    const tabletScreenMatches = useMediaQuery('(min-width:768px)');
+    const phoneScreenMatches = useMediaQuery('(min-width:576px)');
 
-        this._onBrowseNavlinkHover = this._onBrowseNavlinkHover.bind(this)
-        this._onResourcesNavlinkHover = this._onResourcesNavlinkHover.bind(this)
-        this._onAboutUsNavlinkHover = this._onAboutUsNavlinkHover.bind(this)
-        this._onContactNavlinkHover = this._onContactNavlinkHover.bind(this)
-    }
-
-    _onBrowseNavlinkHover() {
-        if(!this.state.isBrowseNavlinkHover) {
-            this.setState({isBrowseNavlinkHover: true})
+    function onBrowseNavlinkHover() {
+        if(!isBrowseNavlinkHover) {
+            setIsBrowseNavlinkHover(true);
         } else {
-            this.setState({isBrowseNavlinkHover: false})
+            setIsBrowseNavlinkHover(false);
         }
-        return;
     }
 
-    _onResourcesNavlinkHover() {
-        if(!this.state.isResourcesNavlinkHover) {
-            this.setState({isResourcesNavlinkHover: true})
+    function onResourcesNavlinkHover() {
+        if(!isResourcesNavlinkHover) {
+            setIsResourcesNavlinkHover(true);
         } else {
-            this.setState({isResourcesNavlinkHover: false})
+            setIsResourcesNavlinkHover(false);
         }
-        return;
     }
 
-    _onAboutUsNavlinkHover() {
-        if(!this.state.isAboutUsNavlinkHover) {
-            this.setState({isAboutUsNavlinkHover: true})
+    function onAboutUsNavlinkHover() {
+        if(!isAboutUsNavlinkHover) {
+            setIsAboutUsNavlinkHover(true)
         } else {
-            this.setState({isAboutUsNavlinkHover: false})
+            setIsAboutUsNavlinkHover(false)
         }
-        return;
     }
 
-    _onContactNavlinkHover() {
-        if(!this.state.isContactNavlinkHover) {
-            this.setState({isContactNavlinkHover: true})
+    function onContactNavlinkHover() {
+        if(!isContactNavlinkHover) {
+            setIsContactNavlinkHover(true)
         } else {
-            this.setState({isContactNavlinkHover: false})
+            setIsContactNavlinkHover(false)
         }
-        return;
     }
 
-    render(){
+    function WideScreen() {
         return (
-            <div style={styles.navbar}>
+            <div style={styles.bigNavbar}>
                 <div style={styles.logo}>
                     <h1><a style={styles.logoText} href="/">ITS</a></h1>
                 </div>
                 <div style={styles.navlinksContainer}>
                         <ul style={styles.navlinks}>
-                            <li style={styles.link}><a href="/keystages" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
-                            <li style={styles.link}><a href="#" style={this.state.isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onResourcesNavlinkHover} onMouseLeave={this._onResourcesNavlinkHover}>Resources</a></li>
-                            <li style={styles.link}><a href="#" style={this.state.isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onAboutUsNavlinkHover} onMouseLeave={this._onAboutUsNavlinkHover}>About us</a></li>
-                            <li style={styles.link}><a href="#" style={this.state.isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onContactNavlinkHover} onMouseLeave={this._onContactNavlinkHover}>Contact</a></li>
+                            <li style={styles.link}><a href="/keystages" style={isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onBrowseNavlinkHover} onMouseLeave={onBrowseNavlinkHover}>Browse</a></li>
+                            <li style={styles.link}><a href="#" style={isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onResourcesNavlinkHover} onMouseLeave={onResourcesNavlinkHover}>Resources</a></li>
+                            <li style={styles.link}><a href="#" style={isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onAboutUsNavlinkHover} onMouseLeave={onAboutUsNavlinkHover}>About us</a></li>
+                            <li style={styles.link}><a href="#" style={isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onContactNavlinkHover} onMouseLeave={onContactNavlinkHover}>Contact</a></li>
                         </ul>
                 </div>
             </div>
         )
     }
+
+    function StandardScreen() {
+        return (
+            <div style={styles.bigNavbar}>
+                <div style={styles.logo}>
+                    <h1><a style={styles.logoText} href="/">ITS</a></h1>
+                </div>
+                <div style={styles.navlinksContainer}>
+                        <ul style={styles.standardNavlinks}>
+                            <li style={styles.link}><a href="/keystages" style={isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onBrowseNavlinkHover} onMouseLeave={onBrowseNavlinkHover}>Browse</a></li>
+                            <li style={styles.link}><a href="#" style={isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onResourcesNavlinkHover} onMouseLeave={onResourcesNavlinkHover}>Resources</a></li>
+                            <li style={styles.link}><a href="#" style={isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onAboutUsNavlinkHover} onMouseLeave={onAboutUsNavlinkHover}>About us</a></li>
+                            <li style={styles.link}><a href="#" style={isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onContactNavlinkHover} onMouseLeave={onContactNavlinkHover}>Contact</a></li>
+                        </ul>
+                </div>
+            </div>
+        )
+    }
+
+    function smallStandardScreen() {
+        return (
+            <div style={styles.bigNavbar}>
+                <div style={styles.logo}>
+                    <h1><a style={styles.logoText} href="/">ITS</a></h1>
+                </div>
+                <div style={styles.navlinksContainer}>
+                        <ul style={styles.smallStandardNavlinks}>
+                            <li style={styles.link}><a href="/keystages" style={isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onBrowseNavlinkHover} onMouseLeave={onBrowseNavlinkHover}>Browse</a></li>
+                            <li style={styles.link}><a href="#" style={isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onResourcesNavlinkHover} onMouseLeave={onResourcesNavlinkHover}>Resources</a></li>
+                            <li style={styles.link}><a href="#" style={isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onAboutUsNavlinkHover} onMouseLeave={onAboutUsNavlinkHover}>About us</a></li>
+                            <li style={styles.link}><a href="#" style={isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onContactNavlinkHover} onMouseLeave={onContactNavlinkHover}>Contact</a></li>
+                        </ul>
+                </div>
+            </div>
+        )
+    }
+
+    function TabletScreen() {
+        return (
+            <div style={styles.bigNavbar}>
+                <div style={styles.logo}>
+                    <h1><a style={styles.logoText} href="/">ITS</a></h1>
+                </div>
+                <div style={styles.navlinksContainer}>
+                        <ul style={styles.tabletNavlinks}>
+                            <li style={styles.link}><a href="/keystages" style={isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onBrowseNavlinkHover} onMouseLeave={onBrowseNavlinkHover}>Browse</a></li>
+                            <li style={styles.link}><a href="#" style={isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onResourcesNavlinkHover} onMouseLeave={onResourcesNavlinkHover}>Resources</a></li>
+                            <li style={styles.link}><a href="#" style={isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onAboutUsNavlinkHover} onMouseLeave={onAboutUsNavlinkHover}>About us</a></li>
+                            <li style={styles.link}><a href="#" style={isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={onContactNavlinkHover} onMouseLeave={onContactNavlinkHover}>Contact</a></li>
+                        </ul>
+                </div>
+            </div>
+        )
+    }
+
+    function PhoneScreen() {
+        return (
+            <div style={styles.bigNavbar}>
+                <div style={styles.logo}>
+                    <h1><a style={styles.logoText} href="/">ITS</a></h1>
+                </div>
+            </div>
+        )
+    }
+
+    if (wideScreenMatches) {
+        return (
+            <div>
+                {WideScreen()}
+            </div>
+        )
+    }
+
+    if (standardScreenMatches) {
+        return (
+            <div>
+                {StandardScreen()}
+            </div>
+        )
+    }
+
+    if (smallStandardScreenMatches) {
+        return (
+            <div>
+                {smallStandardScreen()}
+            </div>
+        )
+    }
+
+    if (tabletScreenMatches) {
+        return (
+            <div>
+                {TabletScreen()}
+            </div>
+        )
+    }
+
+    if (phoneScreenMatches) {
+        return (
+            <div>
+                {PhoneScreen()}
+            </div>
+        )
+    }
+
+    return (
+        <div>
+            {PhoneScreen()}
+        </div>
+    )
 }
 
 const styles = {
-    navbar: {
+    bigNavbar: {
         position: 'fixed',
         top: 0,
         display: 'flex',
@@ -84,7 +186,7 @@ const styles = {
         width: '100%',
         boxShadow: "0px 10px 6px rgba(0, 0, 0, 0.25)",
         color: 'white',
-        backgroundColor: '#232323',  
+        backgroundColor: '#232323',
     },
     logo: {
         paddingLeft: '4vh',
@@ -103,15 +205,44 @@ const styles = {
     navlinks: {
         display: 'flex',
         flexDirection: 'row',
-        paddingRight: '4vh',
-        justifyContent: 'space-evenly',
+        marginRight: '4vh',
+        justifyContent: 'space-around',
         fontSize: '1.56rem',
         fontFamily: 'Lato',
-        fontWeight: 400
+        fontWeight: 400,
+        flex: 8
+    },
+    standardNavlinks: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        fontSize: '1.1rem',
+        flex: 8
+    },
+    smallStandardNavlinks: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        fontSize: '1rem',
+        flex: 8
+    },
+    tabletNavlinks: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        fontSize: '0.8rem',
+        flex: 8
     },
     link: {
+        flex: 12,
         listStyle: 'none',
-        textDecoration: 'none'
+        textDecoration: 'none',
     },
     anchorNonHover: {
         textDecoration: 'none',

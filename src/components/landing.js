@@ -1,91 +1,33 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import mathGirl from "../images/Math-Girl.png";
+import NavBar from "./navbar";
+import { useMediaQuery } from "@mui/material";
 
-class Landing extends Component {
-    constructor(props) {
-        super(props);
+function Landing() {
+    const [isButtonHover, setIsButtonHover] = useState(false)
 
-        this.state = {
-            isButtonHover: false,
-            isBrowseNavlinkHover: false,
-            isResourcesNavlinkHover: false,
-            isAboutUsNavlinkHover: false,
-            isContactNavlinkHover: false
-        }
+    const wideScreenMatches = useMediaQuery('(min-width:1400px)');
+    const standardScreenMatches = useMediaQuery('(min-width:1200px)');
+    const smallStandardScreenMatches = useMediaQuery('(min-width:924px)');
+    const tabletScreenMatches = useMediaQuery('(min-width:768px)');
 
-        this._onButtonHover = this._onButtonHover.bind(this)
-        this._onBrowseNavlinkHover = this._onBrowseNavlinkHover.bind(this)
-        this._onResourcesNavlinkHover = this._onResourcesNavlinkHover.bind(this)
-        this._onAboutUsNavlinkHover = this._onAboutUsNavlinkHover.bind(this)
-        this._onContactNavlinkHover = this._onContactNavlinkHover.bind(this)
-    }
-
-    _onButtonHover() {
-        if(!this.state.isButtonHover) {
-            this.setState({isButtonHover: true})
+    function onButtonHover() {
+        if(!isButtonHover) {
+            setIsButtonHover(true)
         } else {
-            this.setState({isButtonHover: false})
+            setIsButtonHover(false)
         }
-        return;
     }
 
-    _onBrowseNavlinkHover() {
-        if(!this.state.isBrowseNavlinkHover) {
-            this.setState({isBrowseNavlinkHover: true})
-        } else {
-            this.setState({isBrowseNavlinkHover: false})
-        }
-        return;
-    }
-
-    _onResourcesNavlinkHover() {
-        if(!this.state.isResourcesNavlinkHover) {
-            this.setState({isResourcesNavlinkHover: true})
-        } else {
-            this.setState({isResourcesNavlinkHover: false})
-        }
-        return;
-    }
-
-    _onAboutUsNavlinkHover() {
-        if(!this.state.isAboutUsNavlinkHover) {
-            this.setState({isAboutUsNavlinkHover: true})
-        } else {
-            this.setState({isAboutUsNavlinkHover: false})
-        }
-        return;
-    }
-
-    _onContactNavlinkHover() {
-        if(!this.state.isContactNavlinkHover) {
-            this.setState({isContactNavlinkHover: true})
-        } else {
-            this.setState({isContactNavlinkHover: false})
-        }
-        return;
-    }
-
-    render(){
+    function WideScreen() {
         return (
             <div style={styles.container}>
                 <div style={styles.topCurve} />
-                <div style={styles.navbar}>
-                    <div style={styles.logo}>
-                        <h1>ITS</h1>
-                    </div>
-                    <div style={styles.navlinksContainer}>
-                            <ul style={styles.navlinks}>
-                                <li style={styles.link}><a href="/keystages" style={this.state.isBrowseNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onBrowseNavlinkHover} onMouseLeave={this._onBrowseNavlinkHover}>Browse</a></li>
-                                <li style={styles.link}><a href="#" style={this.state.isResourcesNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onResourcesNavlinkHover} onMouseLeave={this._onResourcesNavlinkHover}>Resources</a></li>
-                                <li style={styles.link}><a href="#" style={this.state.isAboutUsNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onAboutUsNavlinkHover} onMouseLeave={this._onAboutUsNavlinkHover}>About us</a></li>
-                                <li style={styles.link}><a href="#" style={this.state.isContactNavlinkHover ? styles.anchorHover : styles.anchorNonHover} onMouseEnter={this._onContactNavlinkHover} onMouseLeave={this._onContactNavlinkHover}>Contact</a></li>
-                            </ul>
-                    </div>
-                </div>
+                <NavBar />
                 <div style={styles.topCenterDiv}>
                     <div style={styles.leftDiv}>
                         <h3 style={styles.leftDivText}>Help your child improve their key stage 1 and 2 maths skills using an intelligent tutoring system</h3>
-                        <a href="/keystages" style={this.state.isButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={this._onButtonHover} onMouseLeave={this._onButtonHover}>Get Started</a>
+                        <a href="/keystages" style={isButtonHover ? styles.leftDivButtonHover : styles.leftDivButtonNonHover} onMouseEnter={onButtonHover} onMouseLeave={onButtonHover}>Get Started</a>
                     </div>
                     <div style={styles.rightDiv}>
                         <img style={styles.rightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
@@ -100,9 +42,123 @@ class Landing extends Component {
                     </div>
                 </div>
             </div>
+        )
+    }
+
+    function StandardScreen() {
+        return (
+            <div style={styles.container}>
+                <div style={styles.topCurve} />
+                <NavBar />
+                <div style={styles.topCenterDiv}>
+                    <div style={styles.leftDiv}>
+                        <h3 style={styles.standardLeftDivText}>Help your child improve their key stage 1 and 2 maths skills using an intelligent tutoring system</h3>
+                        <a href="/keystages" style={isButtonHover ? styles.standardLeftDivButtonHover : styles.standardLeftDivButtonNonHover} onMouseEnter={onButtonHover} onMouseLeave={onButtonHover}>Get Started</a>
+                    </div>
+                    <div style={styles.rightDiv}>
+                        <img style={styles.standardRightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
+                    </div>
+                </div>
+                <div style={styles.bottomDiv}>
+                    <div style={styles.leftLegalDiv}>
+                        <a>Terms of Service</a>
+                    </div>
+                    <div style={styles.rightLegalDiv}>
+                        <a>Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    function TabletScreen() {
+        return (
+            <div style={styles.container}>
+                <div style={styles.topCurve} />
+                <NavBar />
+                <div style={styles.topCenterDiv}>
+                    <div style={styles.leftDiv}>
+                        <h3 style={styles.tabletLeftDivText}>Help your child improve their key stage 1 and 2 maths skills using an intelligent tutoring system</h3>
+                        <a href="/keystages" style={isButtonHover ? styles.tabletLeftDivButtonHover : styles.tabletLeftDivButtonNonHover} onMouseEnter={onButtonHover} onMouseLeave={onButtonHover}>Get Started</a>
+                    </div>
+                    <div style={styles.tabletRightDiv}>
+                        <img style={styles.tabletRightDivImage} src={mathGirl} alt="A happy cartoon girl doing maths" />
+                    </div>
+                </div>
+                <div style={styles.bottomDiv}>
+                    <div style={styles.leftLegalDiv}>
+                        <a>Terms of Service</a>
+                    </div>
+                    <div style={styles.rightLegalDiv}>
+                        <a>Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    function PhoneScreen() {
+        return (
+            <div style={styles.container}>
+                <div style={styles.phoneTopCurve} />
+                <NavBar />
+                <div style={styles.topCenterDiv}>
+                    <div style={styles.leftDiv}>
+                        <h3 style={styles.phoneLeftDivText}>Help your child improve their key stage 1 and 2 maths skills using an intelligent tutoring system</h3>
+                        <a href="/keystages" style={isButtonHover ? styles.tabletLeftDivButtonHover : styles.tabletLeftDivButtonNonHover} onMouseEnter={onButtonHover} onMouseLeave={onButtonHover}>Get Started</a>
+                    </div>
+                </div>
+                <div style={styles.bottomDiv}>
+                    <div style={styles.leftLegalDiv}>
+                        <a>Terms of Service</a>
+                    </div>
+                    <div style={styles.rightLegalDiv}>
+                        <a>Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    if (wideScreenMatches) {
+        return (
+            <div>
+                {WideScreen()}
+            </div>
         );
     }
+
+    if (standardScreenMatches) {
+        return (
+            <div>
+                {StandardScreen()}
+            </div>
+        );
+    }
+
+    if (smallStandardScreenMatches) {
+        return (
+            <div>
+                {StandardScreen()}
+            </div>
+        );
+    }
+
+    if (tabletScreenMatches) {
+        return (
+            <div>
+                {TabletScreen()}
+            </div>
+        );
+    }
+
+    return (
+        <div>
+            {PhoneScreen()}
+        </div>
+    ); 
 }
+
 
 let styles = {
     container: {
@@ -111,7 +167,17 @@ let styles = {
     },
     topCurve: {
         position: 'absolute',
-        width: '111vw',
+        width: '120vw',
+        height: '142vh',
+        backgroundColor: '#2950B3',
+        borderRadius: '50%',
+        left: -120,
+        bottom: 80,
+        boxShadow: 'inset 0px -30px 15px rgba(0, 0, 0, 0.25)'
+    },
+    phoneTopCurve: {
+        position: 'absolute',
+        width: '140vw',
         height: '142vh',
         backgroundColor: '#2950B3',
         borderRadius: '50%',
@@ -186,6 +252,24 @@ let styles = {
         fontFamily: 'Lato',
         fontWeight: 400
     },
+    standardLeftDivText: {
+        width: '75%',
+        fontSize: '1.8rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
+    },
+    tabletLeftDivText: {
+        width: '75%',
+        fontSize: '1.5rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
+    },
+    phoneLeftDivText: {
+        width: '75%',
+        fontSize: '1.4rem',
+        fontFamily: 'Lato',
+        fontWeight: 400
+    },
     leftDivButtonNonHover: {
         padding: 20,
         width: '50%',
@@ -221,6 +305,82 @@ let styles = {
         alignItems: 'center',
         justifyContent: 'center'
     },
+    standardLeftDivButtonHover: {
+        padding: 18,
+        width: '40%',
+        height: 75,
+        marginTop: '10%',
+        borderRadius: 60,
+        border: 'none',
+        backgroundColor: '#47DCFF',
+        color: 'white',
+        fontSize: '2rem',
+        cursor: 'pointer',
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+    },
+    standardLeftDivButtonNonHover: {
+        padding: 18,
+        width: '40%',
+        height: 75,
+        marginTop: '10%',
+        borderRadius: 60,
+        border: 'none',
+        backgroundColor: '#5485FF',
+        color: 'white',
+        fontSize: '2rem',
+        cursor: 'pointer',
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+    },
+    tabletLeftDivButtonHover: {
+        padding: 18,
+        width: '50%',
+        height: 75,
+        marginTop: '10%',
+        borderRadius: 60,
+        border: 'none',
+        backgroundColor: '#47DCFF',
+        color: 'white',
+        fontSize: '1.5rem',
+        cursor: 'pointer',
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+    },
+    tabletLeftDivButtonNonHover: {
+        padding: 18,
+        width: '50%',
+        height: 75,
+        marginTop: '10%',
+        borderRadius: 60,
+        border: 'none',
+        backgroundColor: '#5485FF',
+        color: 'white',
+        fontSize: '1.5rem',
+        cursor: 'pointer',
+        fontFamily: 'Lato',
+        fontWeight: 400,
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+    },
     rightDiv: {
         zIndex: 2,
         width: '100%',
@@ -232,9 +392,28 @@ let styles = {
         alignItems: 'center',
         overflow: 'hidden',
     },
+    tabletRightDiv: {
+        zIndex: 2,
+        width: '100%',
+        flex: 1.5,
+        height: '56vh',
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+    },
     rightDivImage: {
         width: '32vw',
         height: '59vh'
+    },
+    standardRightDivImage: {
+        width: '28vw',
+        height: '40vh'
+    },
+    tabletRightDivImage: {
+        width: '35vw',
+        height: '30vh'
     },
     bottomDiv: {
         display: 'flex',

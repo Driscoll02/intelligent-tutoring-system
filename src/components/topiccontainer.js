@@ -19,7 +19,7 @@ class TopicContainer extends Component {
 const styles = {
     container: {
         height: '15vh',
-        width: '25vw',
+        width: '35vw',
         backgroundColor: "white",
         color: '#232323',
         margin: '2vh',
