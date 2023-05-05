@@ -1,5 +1,4 @@
 import { stemmer } from 'stemmer';
-import intents from '../data/intents.json';
 import stringSimilarity from 'string-similarity';
 import Sentiment from 'sentiment';
 
@@ -18,7 +17,6 @@ class Similarity {
     }
 
     tokeniseStemString(text) {
-        console.log("Text: ", text);
         const tokenisedText = text.split("");
         const stemmedString = stemmer(tokenisedText)
         return stemmedString;

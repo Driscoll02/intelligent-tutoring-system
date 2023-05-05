@@ -70,7 +70,41 @@ function AdditionAndSubtraction(props) {
         }
         const randomNegFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback.length)
         const negativeFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
-        return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
+
+        // Compare answers with common incorrect answers in second rule based system
+        let answerFeedback = "";
+        if (currentQuestionAnswer[0] === "9" && studentAnswer === "20") {
+            answerFeedback = "Since your answer was 20, it seems like you multiplied the numbers, when you were meant to be adding them.";
+        } else if (currentQuestionAnswer[0] === "9" && studentAnswer === "1") {
+            answerFeedback = "Since your answer was 1, it seems like you subtracted the numbers, when you were meant to be adding them.";
+        } else if (currentQuestionAnswer[0] === "4" && studentAnswer === "60") {
+            answerFeedback = "Since your answer was 60, it seems like you multiplied the numbers, when you were meant to be subtracting them.";
+        } else if (currentQuestionAnswer[0] === "4" && studentAnswer === "16") {
+            answerFeedback = "Since your answer was 16, it seems like you added the numbers, when you were meant to be subtracting them.";
+        } else if (currentQuestionAnswer[0] === "13" && studentAnswer === "23") {
+            answerFeedback = "Since your answer was 23, I can see you probably added the numbers instead of subtracting them.";
+        } else if (currentQuestionAnswer[0] === "13" && studentAnswer === "90") {
+            answerFeedback = "Since your answer was 90, I can see you probably multiplied the numbers instead of subtracting them. I wouldn't ask you to do 18x5 at this level!";
+        } else if (currentQuestionAnswer[0] === "17" && studentAnswer === "13") {
+            answerFeedback = "Since your answer was 13, I can see you probably subtracted the numbers instead of adding them.";
+        } else if (currentQuestionAnswer[0] === "17" && studentAnswer === "30") {
+            answerFeedback = "Since your answer was 30, I can see you probably multiplied the numbers instead of adding them.";
+        } else if (currentQuestionAnswer[0] === "4" && studentAnswer === "3") {
+            answerFeedback = "Since your answer was 3, I can see you probably multiplied the numbers instead of adding them.";
+        } else if (currentQuestionAnswer[0] === "4" && studentAnswer === "-2") {
+            answerFeedback = "Since your answer was -2, I can see you probably subtracted the numbers instead of adding them.";
+        } else if (currentQuestionAnswer[0] === "14" && studentAnswer === "120") {
+            answerFeedback = "Since your answer was 3, I can see you probably multiplied the numbers instead of subtracting them.";
+        } else if (currentQuestionAnswer[0] === "14" && studentAnswer === "26") {
+            answerFeedback = "Since your answer was -2, I can see you probably added the numbers instead of subtracting them.";
+        }
+        
+        // Set the feedback state to be correct concatenation of information
+        if(answerFeedback !== "") {
+            return setFeedback(negativeFeedback + " " + answerFeedback + " " + generateSentimentResponse(newResponse));
+        } else {
+            return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
+        }
     }
 
     function generateSentimentResponse(value) {

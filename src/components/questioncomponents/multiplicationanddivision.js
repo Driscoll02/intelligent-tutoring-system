@@ -67,8 +67,30 @@ function MultiplicationDivision() {
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
         const randomNegFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback.length)
-        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
-        return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
+        const negativeFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
+        
+        // Compare answers in second rule based system
+        let answerFeedback = "";
+        if (currentQuestionAnswer[0] === "6" && studentAnswer === "5") {
+            answerFeedback = "Since your answer was 5, are you sure you multiplied the numbers instead of adding them?";
+        } else if (currentQuestionAnswer[0] === "6" && studentAnswer === "-1") {
+            answerFeedback = "Since your answer was -1, are you sure you multiplied the numbers instead of subtracting them?";
+        } else if (currentQuestionAnswer[0] === "20" && studentAnswer === "12") {
+            answerFeedback = "Since your answer was 12, I can see you probably added the numbers instead of multiplying them.";
+        } else if (currentQuestionAnswer[0] === "20" && studentAnswer === "8") {
+            answerFeedback = "Since your answer was 8, I can see you probably subtracted the numbers instead of multiplying them.";
+        } else if (currentQuestionAnswer[0] === "30" && studentAnswer === "13") {
+            answerFeedback = "Since your answer was 13, I can see you probably added the numbers instead of multiplying them.";
+        } else if (currentQuestionAnswer[0] === "30" && studentAnswer === "7") {
+            answerFeedback = "Since your answer was 7, I can see you probably subtracted the numbers instead of multiplying them.";
+        }
+        
+        // Set the feedback state to be correct concatenation of information
+        if(answerFeedback !== "") {
+            return setFeedback(negativeFeedback + " " + answerFeedback + " " + generateSentimentResponse(newResponse));
+        } else {
+            return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
+        }
     }
 
     function generateSentimentResponse(value) {
@@ -76,7 +98,6 @@ function MultiplicationDivision() {
 
         const answerSemantics = similarityObject.analyseSemantics(value)
 
-        // Rule based system
         if(answerSemantics.score > 0 && (value.includes("multiplying") || value.includes("multiplication"))) {
             return "I can see you are very confident in your answer. If you are finding multiplying numbers too easy, maybe you could try some problems from the next year. Good job!"
         } else if(answerSemantics.score < 0 && (value.includes("dividing") || value.includes("division"))) {

@@ -25,13 +25,12 @@ function Measurement() {
     const tabletScreenMatches = useMediaQuery('(min-width:768px)');
 
     function chooseRandomQuestion() {
-        if (yearID === 6) {
-            setTopicIndex(3);
-        }
+        console.log(curriculumData[yearID - 1][topicIndex])
 
         const randNum = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions.length);
         setCurrentQuestionIndex(randNum);
         setCurrentQuestion(curriculumData[yearID - 1][topicIndex].questions[randNum].question);
+        console.log(curriculumData[yearID - 1][topicIndex].questions[randNum].multipleChoiceAnswers)
         setMultipleChoiceOptions(curriculumData[yearID - 1][topicIndex].questions[randNum].multipleChoiceAnswers.join(" - "));
         setCurrentQuestionAnswer(curriculumData[yearID - 1][topicIndex].questions[randNum].answer);
     }
@@ -69,7 +68,7 @@ function Measurement() {
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
         const randomNegFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback.length)
-        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
+        const negativeFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
         return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
     }
 

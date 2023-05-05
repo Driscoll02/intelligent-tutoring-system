@@ -67,7 +67,7 @@ function Fractions() {
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
         const randomNegFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback.length)
-        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
+        const negativeFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
         return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
     }
 
