@@ -46,7 +46,7 @@ function NumberPlaceValue() {
         // Remove any irrelevent characters
         let processedString = [];
         for (let i = 0; i < joinedString.length; i++) {
-            if(joinedString[i] !== '!' && joinedString[i] !== '?' && joinedString[i] !== '"') {
+            if(joinedString[i] !== '.' && joinedString[i] !== '#' && joinedString[i] !== '"') {
                 processedString.push(joinedString[i]);
             }
         }

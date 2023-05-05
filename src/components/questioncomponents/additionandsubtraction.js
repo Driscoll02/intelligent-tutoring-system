@@ -80,16 +80,22 @@ function AdditionAndSubtraction(props) {
         // Rule based system
         if(answerSemantics.score > 0 && (value.includes("adding") || value.includes("addition"))) {
             return "I can see you are very confident in your answer. If you are finding adding numbers too easy, maybe you could try some problems from the next year. Good job!"
-        } else if(answerSemantics.score < 0 && (value.includes("subtracting") || value.includes("subtraction"))) {
+        } else if(answerSemantics.score > 0 && (value.includes("maths") || value.includes("mathematics"))) {
+            return "I'm glad you're enjoying maths and not finding it too difficult. Maybe you should move onto the next topic. Good job!"
+        } else if(answerSemantics.score > 0 && (value.includes("subtracting") || value.includes("subtraction"))) {
             return "I can see you are very confident in your answer. If you are finding subtraction questions too easy, maybe you could try some problems from the next year. Good job!"
         } else if(answerSemantics.score > 0) {
-            return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
+            return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you. In the future, remember to be specific about how you feel with your answer."
         } else if(answerSemantics.score < 0 && (value.includes("adding") || value.includes("addition"))) {
             return "Don't worry about struggling with addition. Maybe you could try the previous year? There's nothing wrong with going back and trying easier questions."
+        } else if(answerSemantics.score < 0 && (value.includes("maths") || value.includes("mathematics"))) {
+            return "I can see you aren't feeling too good on maths in general. Try going back and trying the questions again. If you're still stuggling then you can ask your teacher."
         } else if(answerSemantics.score < 0 && (value.includes("subtracting") || value.includes("subtraction"))) {
             return "Don't worry about struggling with subtraction. Maybe you could try the previous year? There's nothing wrong with going back and trying easier questions."
+        } else if(answerSemantics.score < 0 && value.includes("am struggling with")) {
+            return "Don't worry about struggling with subtraction. Maybe you could try the previous year? There's nothing wrong with going back and trying easier questions."
         } else {
-            return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
+            return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want! In the future, remember to be specific about how you feel with your answer."
         }
     }
 

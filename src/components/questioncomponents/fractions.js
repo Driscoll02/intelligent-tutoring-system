@@ -41,7 +41,6 @@ function Fractions() {
 
     function processStudentResponse(studentSentimentAnswer) {
         // Natural language processing to aid semantic analysis
-        console.log(studentSentimentAnswer)
         const tokenised_words = studentSentimentAnswer.split(" ");
         const lowercaseWords = tokenised_words.map((word) => word.toLowerCase());
         const stemmedWords = lowercaseWords.map((word) => stemmer(word));
@@ -50,7 +49,7 @@ function Fractions() {
         // Remove any irrelevent characters
         let processedString = [];
         for (let i = 0; i < joinedString.length; i++) {
-            if(joinedString[i] !== '!' && joinedString[i] !== '?' && joinedString[i] !== '"') {
+            if(joinedString[i] !== '.' && joinedString[i] !== '#' && joinedString[i] !== '"') {
                 processedString.push(joinedString[i]);
             }
         }

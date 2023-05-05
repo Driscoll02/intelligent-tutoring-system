@@ -45,7 +45,7 @@ function Algebra() {
         // Remove any irrelevent characters
         let processedString = [];
         for (let i = 0; i < joinedString.length; i++) {
-            if(joinedString[i] !== '!' && joinedString[i] !== '?' && joinedString[i] !== '"') {
+            if(joinedString[i] !== '.' && joinedString[i] !== '#' && joinedString[i] !== '"') {
                 processedString.push(joinedString[i]);
             }
         }
@@ -81,6 +81,8 @@ function Algebra() {
             return "It's great to see you are confident with your answer. If you need any help, your teacher won't mind going through anything else with you."
         } else if(answerSemantics.score < 0 && value.includes("algebra")) {
             return "Algebra is hard. You definitely shouldn't worry if you don't get it. Algebra is the most difficult topic you will study in primary school."
+        } else if(answerSemantics.score < 0 && value.includes("formulae")) {
+            return "I can see you are not very confident in your answer. If you're stuggling with the formulae, then I'd recommend watching some videos on the topic. You'd benefit greatly"
         } else {
             return "I can see you are not very confident with your answer. Don't worry, you can practice as much as you want!"
         }
@@ -93,8 +95,6 @@ function Algebra() {
             const similarityObject = new Similarity();
     
             const closestWord = similarityObject.getBestMatch(studentAnswer);
-            console.log(closestWord);
-            console.log("Semantic:", similarityObject.analyseSemantics(howStudentFeels));
         } else {
             return setFeedback("Both fields must be completed before submitting your answer.");
         }
