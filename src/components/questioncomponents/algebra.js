@@ -23,7 +23,6 @@ function Algebra() {
     const tabletScreenMatches = useMediaQuery('(min-width:768px)');
 
     function chooseRandomQuestion() {
-        console.log("Data:", curriculumData[5][5])
         const randNum = Math.floor(Math.random() * curriculumData[yearID - 1][5].questions.length);
         setCurrentQuestionIndex(randNum);
         setCurrentQuestion(curriculumData[yearID - 1][5].questions[randNum].question);
@@ -36,7 +35,6 @@ function Algebra() {
 
     function processStudentResponse(studentSentimentAnswer) {
         // Natural language processing to aid semantic analysis
-        console.log(studentSentimentAnswer)
         const tokenised_words = studentSentimentAnswer.split(" ");
         const lowercaseWords = tokenised_words.map((word) => word.toLowerCase());
         const stemmedWords = lowercaseWords.map((word) => stemmer(word));
@@ -63,7 +61,8 @@ function Algebra() {
             const positiveFeedback = curriculumData[yearID - 1][5].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
-        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
+        const randomNegFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][5].questions[currentQuestionIndex].possibleFeedback.negativeFeedback.length)
+        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
         return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
     }
 

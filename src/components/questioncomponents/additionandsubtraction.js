@@ -68,7 +68,8 @@ function AdditionAndSubtraction(props) {
             const positiveFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
-        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
+        const randomNegFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback.length)
+        const negativeFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
         return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
     }
 

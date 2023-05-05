@@ -27,7 +27,6 @@ function PositionAndDirection() {
         const randNum = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions.length);
         setCurrentQuestionIndex(randNum);
         setCurrentQuestion(curriculumData[yearID - 1][topicIndex].questions[randNum].question);
-        console.log("Data:", curriculumData)
         setCurrentQuestionAnswer(curriculumData[yearID - 1][topicIndex].questions[randNum].answer);
     }
 
@@ -37,7 +36,6 @@ function PositionAndDirection() {
 
     function processStudentResponse(studentSentimentAnswer) {
         // Natural language processing to aid semantic analysis
-        console.log(studentSentimentAnswer)
         const tokenised_words = studentSentimentAnswer.split(" ");
         const lowercaseWords = tokenised_words.map((word) => word.toLowerCase());
         const stemmedWords = lowercaseWords.map((word) => stemmer(word));
@@ -64,14 +62,13 @@ function PositionAndDirection() {
             const positiveFeedback = curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.positiveFeedback[randomPosFeedbackIndex];
             return setFeedback(positiveFeedback + " " + generateSentimentResponse(newResponse));
         }
-        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[0];
+        const randomNegFeedbackIndex = Math.floor(Math.random() * curriculumData[yearID - 1][topicIndex].questions[currentQuestionIndex].possibleFeedback.negativeFeedback.length)
+        const negativeFeedback = curriculumData[yearID - 1][1].questions[currentQuestionIndex].possibleFeedback.negativeFeedback[randomNegFeedbackIndex];
         return setFeedback(negativeFeedback + " " + generateSentimentResponse(newResponse));
     }
 
     function generateSentimentResponse(value) {
         const similarityObject = new Similarity();
-
-        console.log("Value", value)
 
         const answerSemantics = similarityObject.analyseSemantics(value)
 
@@ -104,8 +101,6 @@ function PositionAndDirection() {
             const similarityObject = new Similarity();
     
             const closestWord = similarityObject.getBestMatch(studentAnswer);
-            console.log(closestWord);
-            console.log("Semantic:", similarityObject.analyseSemantics(howStudentFeels));
         } else {
             return setFeedback("Both fields must be completed before submitting your answer.");
         }
