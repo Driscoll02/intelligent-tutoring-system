@@ -130,7 +130,7 @@ function KeyStages() {
                 <NavBar />
                 <div style={styles.topCenterDiv}>
                     <h3 style={styles.phoneStageChoiceText}>Choose your stage</h3>
-                    <div style={styles.topCenterCenterDiv}>
+                    <div style={styles.phoneTopCenterCenterDiv}>
                         <a href="/ks1" style={isKS1ButtonHover ? styles.phoneLeftDivButtonHover : styles.phoneLeftDivButtonNonHover} onMouseEnter={onKeyStage1ButtonHover} onMouseLeave={onKeyStage1ButtonHover}>Key Stage 1</a>
                         <a href="/ks2" style={isKS2ButtonHover ? styles.phoneLeftDivButtonHover : styles.phoneLeftDivButtonNonHover} onMouseEnter={onKeyStage2ButtonHover} onMouseLeave={onKeyStage2ButtonHover}>Key Stage 2</a>
                     </div>
@@ -278,15 +278,22 @@ let styles = {
     },
     phoneStageChoiceText: {
         color: '#FFFFFF',
-        fontSize: '3.8rem',
+        fontSize: '3.2rem',
         fontFamily: 'Lato',
-        fontWeight: 400
+        fontWeight: 400,
+        overflow: 'hidden',
     },
     topCenterCenterDiv: {
         height: '50%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden',
+    },
+    phoneTopCenterCenterDiv: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         overflow: 'hidden',
     },
     leftDivButtonNonHover: {
